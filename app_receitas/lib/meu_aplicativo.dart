@@ -1,3 +1,4 @@
+import 'package:app_receitas/pages/home_page.dart';
 import 'package:app_receitas/pages/login_page.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +13,7 @@ class MeuAplicativo extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.indigo,
       ),
-      home: const LoginPage(),
+      home: const HomePage(),
     );
   }
 }
