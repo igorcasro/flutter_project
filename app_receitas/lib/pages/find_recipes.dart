@@ -83,22 +83,39 @@ class _FindRecipesPageState extends State<FindRecipesPage> {
         );
   }
 
+    bool isPressed = false;
+  _pressed() {
+    var newVal = true;
+    if(isPressed) {
+      newVal = false;
+    } else {
+      newVal = true;
+    }
+
+    // This function is required for changing the state.
+    // Whenever this function is called it refresh the page with new value
+    setState((){
+      isPressed = newVal;
+    });
+  }
+
   Widget _bottomBar(){
+    
     return  BottomAppBar(
           shape: const CircularNotchedRectangle(),
           color: Colors.white,
           child: IconTheme(
-            data: const IconThemeData(color: Color(0xFFE58F65)),
+            data: const IconThemeData(color: Color.fromARGB(255, 209, 209, 209)),
             child: Padding(padding: const EdgeInsets.all(1),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  IconButton(onPressed: (){}, icon: Image.asset('assets/images/icons/home.png')),
-                  IconButton(onPressed: (){}, icon: Image.asset('assets/images/icons/search.png')),
+                  IconButton(onPressed: () => _pressed(), icon: Icon(Icons.home), color: isPressed ? Color(0xFFE58F65) : Color.fromARGB(255, 209, 209, 209)),
+                  IconButton(onPressed: (){}, icon: Icon(Icons.search)),
                   const SizedBox(width: 50,),
-                  IconButton(onPressed: (){}, icon: Image.asset('assets/images/icons/list.png')),
-                  IconButton(onPressed: (){}, icon: Image.asset('assets/images/icons/person.png')),
+                  IconButton(onPressed: (){}, icon: Icon(Icons.list)),
+                  IconButton(onPressed: (){}, icon: Icon(Icons.person)),
                 ],
               ),),
 
@@ -117,44 +134,45 @@ class _FindRecipesPageState extends State<FindRecipesPage> {
   Widget _possibleRecipeCard(){
     return Center(
       child: Card(
-        child: Container(
+        child: Column(children: [
+          Container(
             width: 350,
-            height: 200,
-            margin: const EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 40),
+            height: 160,
+            margin: const EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 20),
             decoration: BoxDecoration(
               image: const DecorationImage(
                 image: AssetImage('assets/images/receitas/pure.jpg'), fit: BoxFit.fitWidth
               ),
               borderRadius: BorderRadius.circular(15)
-            ),
-        child: InkWell(
-          splashColor: const Color.fromARGB(255, 255, 177, 113).withAlpha(30),
-          onTap: () {
-            debugPrint('Card tapped.');
-          },
-          child: Container(
-            width: 300,
-            height: 100,
-            margin: const EdgeInsets.only(top: 170.0, left: 10.0),
-            child: const Text(
-              'Purê de batatas',
-              textAlign: TextAlign.left,
-              // ignore: prefer_const_constructors
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: Color(0xFF474747),
-              ),
+            ), 
+            child: InkWell(
+            splashColor: const Color.fromARGB(255, 255, 177, 113).withAlpha(30),
+            onTap: () {
+              debugPrint('Card tapped.');
+            },
+        )
           ),
-        ),
-      ),
-    )
+          Row(mainAxisAlignment: MainAxisAlignment.start, children: const [
+           Text(
+            'Purê de batatas',
+            textAlign: TextAlign.left,
+            // ignore: prefer_const_constructors
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              color: Color(0xFF474747),
+            ),
+          )
+          ],)
+          ]
+      )
     )
     );
   }
 
   @override
   Widget build(BuildContext context) {
+    bool keyboardIsOpen = MediaQuery.of(context).viewInsets.bottom != 0;
     return Scaffold(
         body: ListView(
           children: <Widget>[
@@ -167,7 +185,7 @@ class _FindRecipesPageState extends State<FindRecipesPage> {
         ),
         extendBody: true,
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        floatingActionButton: _centerBottomBar(),
+        floatingActionButton: Visibility(child:_centerBottomBar(), visible: !keyboardIsOpen),
         bottomNavigationBar: _bottomBar(),
 
     );
