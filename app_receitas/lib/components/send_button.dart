@@ -1,11 +1,13 @@
 import 'package:app_receitas/constants.dart';
 import 'package:flutter/material.dart';
 
-class LoginButton extends StatelessWidget {
+class SendButton extends StatelessWidget {
+  final String text;
   final VoidCallback onPressed;
-  const LoginButton({
+  const SendButton({
     Key? key,
     required this.onPressed,
+    required this.text,
   }) : super(key: key);
 
   @override
@@ -26,9 +28,9 @@ class LoginButton extends StatelessWidget {
           ),
         ),
         onPressed: onPressed,
-        child: const Text(
-          "Fazer Login",
-          style: TextStyle(color: loginAndRegisterColor),
+        child: Text(
+          text,
+          style: const TextStyle(color: loginAndRegisterColor),
         ),
       ),
     );

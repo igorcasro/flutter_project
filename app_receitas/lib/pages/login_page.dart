@@ -1,6 +1,6 @@
 import 'package:app_receitas/components/forgot_your_password_check.dart';
 import 'package:app_receitas/components/google_button.dart';
-import 'package:app_receitas/components/login_button.dart';
+import 'package:app_receitas/components/send_button.dart';
 import 'package:app_receitas/components/new_around_here_check.dart';
 import 'package:app_receitas/components/separator_widget.dart';
 import 'package:app_receitas/components/used_input_password_field.dart';
@@ -37,7 +37,8 @@ class LoginPage extends StatelessWidget {
             ForgotYourPasswordCheck(
               press: () {},
             ),
-            LoginButton(
+            SendButton(
+              text: "Fazer login",
               onPressed: () {},
             ),
             const SeparatorWidget(),
