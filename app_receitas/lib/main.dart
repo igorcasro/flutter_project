@@ -23,7 +23,6 @@ class MyApp extends StatelessWidget {
 }
 //void main() {
 //  debugInvertOversizedImages = false;
-  
 //  runApp(const MeuAplicativo());
 
 //}
