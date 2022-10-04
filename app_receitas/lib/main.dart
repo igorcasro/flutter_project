@@ -1,8 +1,29 @@
-import 'package:app_receitas/meu_aplicativo.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:app_receitas/constants.dart';
+import 'package:app_receitas/pages/login_page.dart';
+import 'package:flutter/material.dart';
 
-void main() {
-  debugInvertOversizedImages = false;
+
+void main() => runApp(const MyApp());
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Fridgey App',
+      theme: ThemeData(
+        primaryColor: primaryColor,
+        scaffoldBackgroundColor: whiteBackgroundColor,
+      ),
+      home: const LoginPage(),
+    );
+  }
+
+//void main() {
+//  debugInvertOversizedImages = false;
   
-  runApp(const MeuAplicativo());
-}
+//  runApp(const MeuAplicativo());
+
+//}
