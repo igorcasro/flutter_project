@@ -46,6 +46,21 @@ class RecoverPasswordPage extends StatelessWidget {
               child: text('instruções para recuperação.', 16),
             ),
             SendButton(onPressed: () {}, text: "Enviar e-mail"),
+            FloatingActionButton.extended(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: const Icon(
+                Icons.arrow_back_ios,
+                color: primaryColor,
+              ),
+              label: Text(
+                'Voltar ao início'.toUpperCase(),
+                style: const TextStyle(color: primaryColor),
+              ),
+              backgroundColor: loginAndRegisterColor,
+              elevation: 0,
+            ),
           ],
         ),
       ),
