@@ -10,4 +10,6 @@
 ### Páginas Criadas
 * Página de Login (Igor)
   * Dificuldades:
-    * 
+    * abstração dos conceitos iniciais;
+    * dificuldade em organizar as estruturas em widgets;
+    * confusão em relação aos forms
