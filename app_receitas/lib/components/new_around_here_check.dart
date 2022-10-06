@@ -2,8 +2,10 @@ import 'package:app_receitas/constants.dart';
 import 'package:flutter/material.dart';
 
 class NewAroundHereCheck extends StatelessWidget {
+  final VoidCallback press;
   const NewAroundHereCheck({
     Key? key,
+    required this.press,
   }) : super(key: key);
 
   @override
@@ -19,7 +21,7 @@ class NewAroundHereCheck extends StatelessWidget {
           ),
         ),
         GestureDetector(
-          onTap: () {},
+          onTap: press,
           child: const Text(
             "Cadastre-se!",
             style: TextStyle(

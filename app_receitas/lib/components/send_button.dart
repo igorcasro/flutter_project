@@ -22,7 +22,7 @@ class SendButton extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(29),
           ),
-          backgroundColor: primaryColor,
+          primary: primaryColor,
           textStyle: const TextStyle(
             fontSize: 20,
             color: loginAndRegisterColor,
