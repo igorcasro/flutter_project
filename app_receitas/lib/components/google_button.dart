@@ -18,7 +18,7 @@ class GoogleButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(29)),
-          backgroundColor: Colors.grey[200],
+          primary: Colors.grey[200],
           textStyle: const TextStyle(
             fontSize: 20,
             color: Colors.black,
