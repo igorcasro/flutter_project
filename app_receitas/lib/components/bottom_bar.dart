@@ -1,3 +1,5 @@
+import 'package:app_receitas/pages/find_recipes.dart';
+import 'package:app_receitas/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
 class BottomBar extends StatelessWidget {
@@ -21,19 +23,39 @@ class BottomBar extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               IconButton(
-                  onPressed: () {},
+                  onPressed: () {Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: ((context) => const HomePage()),
+                  ),
+                );},
                   icon: Image.asset('assets/images/icons/home.png')),
               IconButton(
-                  onPressed: () {},
+                  onPressed: () {Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: ((context) => const FindRecipesPage()),
+                  ),
+                );},
                   icon: Image.asset('assets/images/icons/search.png')),
               const SizedBox(
                 width: 50,
               ),
               IconButton(
-                  onPressed: () {},
+                  onPressed: () {Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: ((context) => const HomePage()),
+                  ),
+                );},
                   icon: Image.asset('assets/images/icons/list.png')),
               IconButton(
-                  onPressed: () {},
+                  onPressed: () {Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: ((context) => const HomePage()),
+                  ),
+                );},
                   icon: Image.asset('assets/images/icons/person.png')),
             ],
           ),

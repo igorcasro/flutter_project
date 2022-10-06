@@ -1,3 +1,5 @@
+import 'package:app_receitas/components/bottom_bar.dart';
+import 'package:app_receitas/components/center_bottom_bar.dart';
 import 'package:app_receitas/repositorie/receitasRepositorie.dart';
 import 'package:flutter/material.dart';
 
@@ -76,51 +78,6 @@ class _HomePageState extends State<HomePage> {
   //     );
   // }
 
-  Widget _bottomBar() {
-    return BottomAppBar(
-      shape: const CircularNotchedRectangle(),
-      color: Colors.white,
-      child: IconTheme(
-        data: const IconThemeData(color: Color(0xFFE58F65)),
-        child: Padding(
-          padding: const EdgeInsets.all(1),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              IconButton(
-                  onPressed: () {},
-                  icon: Image.asset('assets/images/icons/home.png')),
-              IconButton(
-                  onPressed: () {},
-                  icon: Image.asset('assets/images/icons/search.png')),
-              const SizedBox(
-                width: 50,
-              ),
-              IconButton(
-                  onPressed: () {},
-                  icon: Image.asset('assets/images/icons/list.png')),
-              IconButton(
-                  onPressed: () {},
-                  icon: Image.asset('assets/images/icons/person.png')),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _centerBottomBar() {
-    return FloatingActionButton(
-      onPressed: () {},
-      backgroundColor: const Color(0xFFE58F65),
-      child: IconButton(
-        onPressed: () {},
-        icon: Image.asset('assets/images/icons/fridgey.png'),
-        iconSize: 100,
-      ),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -135,8 +92,8 @@ class _HomePageState extends State<HomePage> {
       ),
       extendBody: true,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: _centerBottomBar(),
-      bottomNavigationBar: _bottomBar(),
+      floatingActionButton: CenterBottomBar(press: () {  },),
+      bottomNavigationBar: BottomBar(press: () {  },),
     );
   }
 }

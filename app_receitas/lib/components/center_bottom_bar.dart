@@ -1,3 +1,4 @@
+import 'package:app_receitas/pages/my_fridge.dart';
 import 'package:flutter/material.dart';
 
 class CenterBottomBar extends StatelessWidget {
@@ -13,7 +14,12 @@ class CenterBottomBar extends StatelessWidget {
       onPressed: () {},
       backgroundColor: const Color(0xFFE58F65),
       child: IconButton(
-        onPressed: () {},
+        onPressed: () {Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: ((context) => const MyFridgePage()),
+                  ),
+                );},
         icon: Image.asset('assets/images/icons/fridgey.png'),
         iconSize: 100,
       ),
