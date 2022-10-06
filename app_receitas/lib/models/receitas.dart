@@ -1,6 +1,10 @@
+import 'package:app_receitas/models/ingredienteReceita.dart';
+import 'package:app_receitas/models/modoPreparoReceita.dart';
+
 class Receita{
   String nome;
-  String modoDePreparo;
+  ModoPreparoReceita modoDePreparo;
+  List<IngredienteReceita> ingredientes;
   String tempoDePreparo;
   String foto;
   String data;
@@ -10,6 +14,7 @@ class Receita{
     required this.modoDePreparo,
     required this.tempoDePreparo,
     required this.foto,
-    required this.data
+    required this.data,
+    required this.ingredientes,
   });
 }
