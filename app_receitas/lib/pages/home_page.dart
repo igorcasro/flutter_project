@@ -1,3 +1,5 @@
+import 'package:app_receitas/components/bottom_bar.dart';
+import 'package:app_receitas/components/center_bottom_bar.dart';
 import 'package:app_receitas/models/receitas.dart';
 import 'package:app_receitas/pages/receitas_page.dart';
 import 'package:app_receitas/repositorie/receitasRepositorie.dart';
@@ -69,7 +71,6 @@ class _HomePageState extends State<HomePage> {
             ));
   }
 
-
   Widget _receitasRecentes() {
     final receitas = ReceitaRepositorie.listaReceitas;
     return
@@ -128,12 +129,8 @@ class _HomePageState extends State<HomePage> {
                   IconButton(onPressed: (){}, icon: Icon(Icons.person,color: Color(0xFF474747))),
                 ],
               ),),
-
-
           ),
-        ),
-      ),
-    );
+        );
   }
 
   Widget _centerBottomBar() {
@@ -151,8 +148,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-        backgroundColor: const Color(0xffF8F8F8),
         body:  ListView(
           children: <Widget>[
             _text("Início", 35.0),
@@ -165,9 +160,6 @@ class _HomePageState extends State<HomePage> {
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: _centerBottomBar(),
         bottomNavigationBar: _bottomBar(),
-
-
-
     );
   }
 }
