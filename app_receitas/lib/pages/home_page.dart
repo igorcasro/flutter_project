@@ -1,7 +1,6 @@
 import 'package:app_receitas/models/receitas.dart';
 import 'package:app_receitas/pages/receitas_page.dart';
 import 'package:app_receitas/repositorie/receitasRepositorie.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 // ignore: use_key_in_widget_constructors
@@ -37,7 +36,6 @@ class _HomePageState extends State<HomePage> {
           fontSize: tamanho,
           fontWeight: FontWeight.bold,
           color: const Color(0xFF474747),
-            
         ),
       ),
       // ignore: prefer_const_constructors
@@ -70,6 +68,7 @@ class _HomePageState extends State<HomePage> {
             itemCount: receitas.length,
             ));
   }
+
 
   Widget _receitasRecentes() {
     final receitas = ReceitaRepositorie.listaReceitas;
@@ -130,21 +129,29 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),),
 
+
           ),
-        );
+        ),
+      ),
+    );
   }
 
-  Widget _centerBottomBar(){
-    return
-    FloatingActionButton(onPressed: (){}, 
-          backgroundColor: const Color(0xFFE58F65),
-            child: IconButton(onPressed: (){}, icon: Image.asset('assets/images/icons/fridgey.png'), iconSize: 100,),
-          );
+  Widget _centerBottomBar() {
+    return FloatingActionButton(
+      onPressed: () {},
+      backgroundColor: const Color(0xFFE58F65),
+      child: IconButton(
+        onPressed: () {},
+        icon: Image.asset('assets/images/icons/fridgey.png'),
+        iconSize: 100,
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
         backgroundColor: const Color(0xffF8F8F8),
         body:  ListView(
           children: <Widget>[
@@ -160,8 +167,7 @@ class _HomePageState extends State<HomePage> {
         bottomNavigationBar: _bottomBar(),
 
 
+
     );
-
-
   }
 }
