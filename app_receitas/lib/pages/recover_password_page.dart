@@ -1,3 +1,4 @@
+import 'package:app_receitas/components/back_to_start_button.dart';
 import 'package:app_receitas/components/send_button.dart';
 import 'package:app_receitas/components/used_input_text_field.dart';
 import 'package:app_receitas/constants.dart';
@@ -46,20 +47,13 @@ class RecoverPasswordPage extends StatelessWidget {
               child: text('instruções para recuperação.', 16),
             ),
             SendButton(onPressed: () {}, text: "Enviar e-mail"),
-            FloatingActionButton.extended(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: const Icon(
-                Icons.arrow_back_ios,
-                color: primaryColor,
+            Container(
+              alignment: Alignment.center,
+              child: BackToStartButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
               ),
-              label: Text(
-                'Voltar ao início'.toUpperCase(),
-                style: const TextStyle(color: primaryColor),
-              ),
-              backgroundColor: loginAndRegisterColor,
-              elevation: 0,
             ),
           ],
         ),

@@ -19,7 +19,11 @@ class UsedInputTextField extends StatelessWidget {
       child: TextField(
         onChanged: onChanged,
         decoration: InputDecoration(
-          icon: Icon(icon, color: blackTextColor),
+          icon: Icon(
+            icon,
+            color: blackTextColor,
+            size: 35,
+          ),
           hintText: hintText,
         ),
       ),

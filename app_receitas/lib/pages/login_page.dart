@@ -7,6 +7,7 @@ import 'package:app_receitas/components/used_input_password_field.dart';
 import 'package:app_receitas/components/used_input_text_field.dart';
 import 'package:app_receitas/constants.dart';
 import 'package:app_receitas/pages/recover_password_page.dart';
+import 'package:app_receitas/pages/register_page.dart';
 
 import 'package:flutter/material.dart';
 
@@ -25,7 +26,7 @@ class LoginPage extends StatelessWidget {
               width: double.infinity,
             ),
             Align(
-              alignment: const FractionalOffset(0, 0),
+              alignment: const FractionalOffset(0.04, 0),
               child: text('Login', 40),
             ),
             UsedInputTextField(
@@ -54,7 +55,16 @@ class LoginPage extends StatelessWidget {
             GoogleButton(
               onPressed: () {},
             ),
-            const NewAroundHereCheck(),
+            NewAroundHereCheck(
+              press: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: ((context) => const RegisterPage()),
+                  ),
+                );
+              },
+            ),
             const SizedBox(height: 10),
           ],
         ),

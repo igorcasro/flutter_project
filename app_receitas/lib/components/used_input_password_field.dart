@@ -4,9 +4,11 @@ import 'package:flutter/material.dart';
 
 class UsedInputPasswordField extends StatelessWidget {
   final ValueChanged<String> onChanged;
+  final bool endSuffixIcon;
   const UsedInputPasswordField({
     Key? key,
     required this.onChanged,
+    this.endSuffixIcon = true,
   }) : super(key: key);
 
   @override
@@ -15,16 +17,19 @@ class UsedInputPasswordField extends StatelessWidget {
       child: TextField(
         obscureText: true,
         onChanged: onChanged,
-        decoration: const InputDecoration(
+        decoration: InputDecoration(
           hintText: "Senha",
-          icon: Icon(
+          icon: const Icon(
             Icons.lock_outline,
             color: blackTextColor,
+            size: 35,
           ),
-          suffixIcon: Icon(
-            Icons.visibility_outlined,
-            color: blackTextColor,
-          ),
+          suffixIcon: (endSuffixIcon
+              ? const Icon(
+                  Icons.visibility_outlined,
+                  color: blackTextColor,
+                )
+              : null),
         ),
       ),
     );
