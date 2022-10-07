@@ -1,5 +1,6 @@
 import 'package:app_receitas/pages/find_recipes.dart';
 import 'package:app_receitas/pages/home_page.dart';
+import 'package:app_receitas/pages/profile_page.dart';
 import 'package:flutter/material.dart';
 
 class BottomBar extends StatelessWidget {
@@ -50,7 +51,7 @@ class BottomBar extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: ((context) => const HomePage()),
+                        builder: ((context) => const ProfilePage()),
                       ),
                     );
                   }, icon: const Icon(Icons.person,color: Color(0xFF474747))),

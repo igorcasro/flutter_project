@@ -14,9 +14,9 @@ class PossibleRecipeCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Card(
-        shape: RoundedRectangleBorder(
-    borderRadius: BorderRadius.circular(15.0),
-  ),
+          shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15.0),
+        ),
         child: Column(children: [
           Container(
             width: 350,

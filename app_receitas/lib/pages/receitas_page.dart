@@ -2,6 +2,7 @@ import 'package:app_receitas/models/receitas.dart';
 import 'package:flutter/material.dart';
 
 import '../components/public/bottom_bar.dart';
+import '../components/public/center_bottom_bar.dart';
 
 // ignore: must_be_immutable
 class ReceitasPage extends StatefulWidget {
@@ -180,7 +181,7 @@ class _ReceitasPageState extends State<ReceitasPage> {
             _modoDePreparo()
           ])),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: _centerBottomBar(),
+      floatingActionButton: CenterBottomBar(press: () {  },),
       bottomNavigationBar: BottomBar(press: () {  },),
     );
   }
