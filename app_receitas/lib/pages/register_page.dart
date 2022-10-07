@@ -1,8 +1,7 @@
-import 'package:app_receitas/components/back_to_start_button.dart';
-import 'package:app_receitas/components/send_button.dart';
-import 'package:app_receitas/components/text_field_container.dart';
-import 'package:app_receitas/components/used_input_password_field.dart';
-import 'package:app_receitas/components/used_input_text_field.dart';
+import 'package:app_receitas/components/public/back_to_start_button.dart';
+import 'package:app_receitas/components/public/send_button.dart';
+import 'package:app_receitas/components/public/used_input_password_field.dart';
+import 'package:app_receitas/components/public/used_input_text_field.dart';
 import 'package:app_receitas/constants.dart';
 import 'package:flutter/material.dart';
 

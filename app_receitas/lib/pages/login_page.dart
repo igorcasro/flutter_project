@@ -1,10 +1,10 @@
-import 'package:app_receitas/components/forgot_your_password_check.dart';
-import 'package:app_receitas/components/google_button.dart';
-import 'package:app_receitas/components/send_button.dart';
-import 'package:app_receitas/components/new_around_here_check.dart';
-import 'package:app_receitas/components/separator_widget.dart';
-import 'package:app_receitas/components/used_input_password_field.dart';
-import 'package:app_receitas/components/used_input_text_field.dart';
+import 'package:app_receitas/components/login_page/forgot_your_password_check.dart';
+import 'package:app_receitas/components/login_page/google_button.dart';
+import 'package:app_receitas/components/public/send_button.dart';
+import 'package:app_receitas/components/login_page/new_around_here_check.dart';
+import 'package:app_receitas/components/public/separator_widget.dart';
+import 'package:app_receitas/components/public/used_input_password_field.dart';
+import 'package:app_receitas/components/public/used_input_text_field.dart';
 import 'package:app_receitas/constants.dart';
 import 'package:app_receitas/pages/recover_password_page.dart';
 import 'package:app_receitas/pages/register_page.dart';

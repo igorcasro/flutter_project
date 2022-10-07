@@ -1,13 +1,13 @@
+// ignore_for_file: file_names
 import 'package:app_receitas/models/ingredientes.dart';
 
-class IngredienteReceita{
+class IngredienteReceita {
   Ingrediente ingrediente;
   double quantidade;
   String uMedida;
 
-  IngredienteReceita({
-    required this.ingrediente,
-    required this.quantidade,
-    required this.uMedida
-  });
+  IngredienteReceita(
+      {required this.ingrediente,
+      required this.quantidade,
+      required this.uMedida});
 }

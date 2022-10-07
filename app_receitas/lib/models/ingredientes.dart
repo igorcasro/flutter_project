@@ -1,10 +1,9 @@
 import 'package:flutter/cupertino.dart';
 
-class Ingrediente{
+class Ingrediente {
   String nome;
-  
-Ingrediente({
-  required this.nome,
-});
 
+  Ingrediente({
+    required this.nome,
+  });
 }

@@ -1,4 +1,4 @@
-import 'package:app_receitas/components/text_field_container.dart';
+import 'package:app_receitas/components/public/text_field_container.dart';
 import 'package:app_receitas/constants.dart';
 import 'package:flutter/material.dart';
 
