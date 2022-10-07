@@ -12,12 +12,9 @@ class CenterBottomBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return FloatingActionButton(
       onPressed: () {
-        Navigator.push(
-          context,
-            MaterialPageRoute(
-              builder: ((context) => const MyFridgePage()),
-            ),
-          );
+        Navigator.of(context).pushReplacement(MaterialPageRoute(
+          builder: ((context) => const MyFridgePage()),
+        ));
       },
       backgroundColor: const Color(0xFFE58F65),
       child: IconButton(
