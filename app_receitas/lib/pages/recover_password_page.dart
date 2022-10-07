@@ -49,7 +49,6 @@ class RecoverPasswordPage extends StatelessWidget {
             SendButton(
               onPressed: () {},
               text: "Enviar e-mail",
-              icon: const Icon(null),
             ),
             Container(
               alignment: Alignment.center,

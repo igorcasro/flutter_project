@@ -48,7 +48,6 @@ class RegisterPage extends StatelessWidget {
             SendButton(
               onPressed: () {},
               text: 'Realizar Cadastro',
-              icon: const Icon(null),
             ),
             Container(
               alignment: Alignment.bottomCenter,

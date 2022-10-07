@@ -54,7 +54,6 @@ class LoginPage extends StatelessWidget {
                   builder: ((context) => const HomePage()),
                 ));
               },
-              icon: const Icon(null),
             ),
             const SeparatorWidget(),
             const SizedBox(height: 5),
