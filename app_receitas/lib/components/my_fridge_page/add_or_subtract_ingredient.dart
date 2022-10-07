@@ -1,8 +1,6 @@
-import 'package:app_receitas/components/text_field_container.dart';
 import 'package:flutter/material.dart';
-import '../constants.dart';
-import '../models/receitas.dart';
 
+// ignore: must_be_immutable
 class AddOrSubtractIngredient extends StatelessWidget {
     late int counter;
     late String counterText;
@@ -40,7 +38,6 @@ class AddOrSubtractIngredient extends StatelessWidget {
               child: IconButton(
                 onPressed: () {
                   counter--;
-                  print(counter);
                 },
                 icon: const Icon(
                   Icons.add,
@@ -92,7 +89,6 @@ class AddOrSubtractIngredient extends StatelessWidget {
               child: IconButton(
                 onPressed: () {
                   counter--;
-                  print(counter);
                 },
                 icon: const Icon(
                   Icons.remove,

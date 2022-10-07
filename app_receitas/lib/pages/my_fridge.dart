@@ -1,9 +1,9 @@
-import 'package:app_receitas/components/add_ingredient_listview.dart';
-import 'package:app_receitas/components/bottom_bar.dart';
-import 'package:app_receitas/components/center_bottom_bar.dart';
+import 'package:app_receitas/components/my_fridge_page/add_ingredient_listview.dart';
+import 'package:app_receitas/components/public/bottom_bar.dart';
+import 'package:app_receitas/components/public/center_bottom_bar.dart';
 import 'package:app_receitas/constants.dart';
 import 'package:flutter/material.dart';
-import '../components/add_ingredient_input.dart';
+import '../components/my_fridge_page/add_ingredient_input.dart';
 
 class MyFridgePage extends StatelessWidget {
   const MyFridgePage({super.key});
@@ -11,7 +11,7 @@ class MyFridgePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 243, 243, 243),
+      backgroundColor: const Color.fromARGB(255, 243, 243, 243),
       body: SingleChildScrollView(
         child: Column(
           children: [
