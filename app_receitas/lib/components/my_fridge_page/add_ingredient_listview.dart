@@ -12,7 +12,7 @@ class AddIngredientListview extends StatelessWidget {
     final ingredients = IngredientRepository.ingredientsPhotosList;
 
     return Container(
-        height: 540,
+        height: MediaQuery.of(context).size.height * 0.65,
         margin: const EdgeInsets.only(top: 10.0, left: 10.0, right: 10.0),
         child: ListView.separated(
           padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),

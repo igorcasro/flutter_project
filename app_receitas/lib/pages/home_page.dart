@@ -110,54 +110,6 @@ class _HomePageState extends State<HomePage> {
         ));
   }
 
-  Widget _bottomBar() {
-    return BottomAppBar(
-      shape: const CircularNotchedRectangle(),
-      color: Colors.white,
-      child: IconTheme(
-        data: const IconThemeData(color: Color(0xFFE58F65)),
-        child: Padding(
-          padding: const EdgeInsets.all(1),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.home_sharp, color: Color(0xffE58F65))),
-              IconButton(
-                  onPressed: () {},
-                  icon:
-                      const Icon(Icons.search_sharp, color: Color(0xFF474747))),
-              const SizedBox(
-                width: 50,
-              ),
-              IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.view_timeline_rounded,
-                      color: Color(0xFF474747))),
-              IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.person, color: Color(0xFF474747))),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _centerBottomBar() {
-    return FloatingActionButton(
-      onPressed: () {},
-      backgroundColor: const Color(0xFFE58F65),
-      child: IconButton(
-        onPressed: () {},
-        icon: Image.asset('assets/images/icons/fridgey.png'),
-        iconSize: 100,
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
