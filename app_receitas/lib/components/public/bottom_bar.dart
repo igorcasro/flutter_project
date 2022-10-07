@@ -26,22 +26,16 @@ class BottomBar extends StatelessWidget {
             children: [
               IconButton(
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: ((context) => const HomePage()),
-                      ),
-                    );
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: ((context) => const HomePage()),
+                    ));
                   },
                   icon: const Icon(Icons.home_sharp, color: Color(0xffE58F65))),
               IconButton(
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: ((context) => const FindRecipesPage()),
-                      ),
-                    );
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: ((context) => const FindRecipesPage()),
+                    ));
                   },
                   icon:
                       const Icon(Icons.search_sharp, color: Color(0xFF474747))),
@@ -50,23 +44,17 @@ class BottomBar extends StatelessWidget {
               ),
               IconButton(
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: ((context) => const MyRecipes()),
-                      ),
-                    );
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: ((context) => const MyRecipes()),
+                    ));
                   },
                   icon: const Icon(Icons.view_timeline_rounded,
                       color: Color(0xFF474747))),
               IconButton(
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: ((context) => const ProfilePage()),
-                      ),
-                    );
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: ((context) => const ProfilePage()),
+                    ));
                   },
                   icon: const Icon(Icons.person, color: Color(0xFF474747))),
             ],
