@@ -32,7 +32,7 @@ class AddIngredientInput extends StatelessWidget {
                         prefixIcon: Container(
                           padding: const EdgeInsets.all(5),
                           width: 18,
-                          child: IconButton(onPressed: (){}, icon: Icon(Icons.search)),
+                          child: IconButton(onPressed: (){}, icon: const Icon(Icons.search)),
                         )
                       ),
                     ),

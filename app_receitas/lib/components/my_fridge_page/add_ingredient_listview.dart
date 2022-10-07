@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../repositorie/receitasRepositorie.dart';
+import '../../repositorie/ingredientsPhotosRepository.dart';
 import 'add_ingredient_card.dart';
 
 class AddIngredientListview extends StatelessWidget {
@@ -10,19 +9,20 @@ class AddIngredientListview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final receitas = ReceitaRepositorie.listaReceitas;
+    final ingredients = IngredientRepository.ingredientsPhotosList;
 
     return Container(
-        height: 550,
+        height: 540,
         margin: const EdgeInsets.only(top: 10.0, left: 10.0, right: 10.0),
         child: ListView.separated(
+          padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
             scrollDirection: Axis.vertical,
-            itemBuilder: (BuildContext contexto, int receita) {
+            itemBuilder: (BuildContext contexto, int ingredient) {
               return AddIngredientCard(
-                receita: receitas[receita],
+                ingredient: ingredients[ingredient],
               );
             },
             separatorBuilder: (context, _) => const SizedBox(width: 0),
-            itemCount: receitas.length));
+            itemCount: ingredients.length));
   }
 }
