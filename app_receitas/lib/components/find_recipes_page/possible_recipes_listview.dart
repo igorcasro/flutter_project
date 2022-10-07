@@ -16,7 +16,7 @@ class PossibleRecipeListView extends StatelessWidget {
         height: 580,
         margin: const EdgeInsets.fromLTRB(10, 10, 10, 0),
         child: ListView.separated(
-          padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+          padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
             scrollDirection: Axis.vertical,
             itemBuilder: (BuildContext contexto, int receita) {
               return PossibleRecipeCard(
