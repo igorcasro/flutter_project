@@ -35,6 +35,7 @@ class _AddNewRecipePageState extends State<AddNewRecipePage> {
 
   @override
   Widget build(BuildContext context) {
+    bool keyboardIsOpen = MediaQuery.of(context).viewInsets.bottom != 0;
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: whiteBackgroundColor,
@@ -132,8 +133,11 @@ class _AddNewRecipePageState extends State<AddNewRecipePage> {
       ),
       extendBody: true,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: CenterBottomBar(
-        press: () {},
+      floatingActionButton: Visibility(
+        visible: !keyboardIsOpen,
+        child: CenterBottomBar(
+          press: () {},
+        ),
       ),
       bottomNavigationBar: BottomBar(
         press: () {},

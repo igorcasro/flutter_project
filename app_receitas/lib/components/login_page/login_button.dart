@@ -20,7 +20,7 @@ class LoginButton extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(29),
           ),
-          primary: primaryColor,
+          backgroundColor: primaryColor,
           textStyle: const TextStyle(
             fontSize: 20,
             color: loginAndRegisterColor,
