@@ -92,6 +92,7 @@ class _ReceitasPageState extends State<ReceitasPage> {
                   color: Color(0xffE58F65),
                   size: 30,
                 ),
+
                 title: const Text(
                   "PREPARO",
                   style: TextStyle(
@@ -183,6 +184,7 @@ class _ReceitasPageState extends State<ReceitasPage> {
               );
             }),
           )
+
         ],
       ),
     );
@@ -212,6 +214,7 @@ class _ReceitasPageState extends State<ReceitasPage> {
             _cardImage(),
             _ingredientes(),
             _modoDePreparo(),
+
             const SizedBox(
               height: 50,
             )
