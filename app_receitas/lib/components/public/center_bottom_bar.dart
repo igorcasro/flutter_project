@@ -11,15 +11,17 @@ class CenterBottomBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
-      onPressed: () {},
+      onPressed: () {
+        Navigator.push(
+          context,
+            MaterialPageRoute(
+              builder: ((context) => const MyFridgePage()),
+            ),
+          );
+      },
       backgroundColor: const Color(0xFFE58F65),
       child: IconButton(
-        onPressed: () {Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: ((context) => const MyFridgePage()),
-                  ),
-                );},
+        onPressed: () {},
         icon: Image.asset('assets/images/icons/fridgey.png'),
         iconSize: 100,
       ),
