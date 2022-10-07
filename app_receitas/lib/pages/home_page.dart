@@ -172,8 +172,12 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: CenterBottomBar(press: () {  },),
-      bottomNavigationBar: BottomBar(press: () {  },),
+      floatingActionButton: CenterBottomBar(
+        press: () {},
+      ),
+      bottomNavigationBar: BottomBar(
+        press: () {},
+      ),
     );
   }
 }
