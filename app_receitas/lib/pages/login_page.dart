@@ -49,6 +49,7 @@ class LoginPage extends StatelessWidget {
             SendButton(
               text: "Fazer login",
               onPressed: () {},
+              icon: const Icon(null),
             ),
             const SeparatorWidget(),
             const SizedBox(height: 5),
