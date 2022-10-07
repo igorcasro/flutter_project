@@ -212,7 +212,8 @@ class _ReceitasPageState extends State<ReceitasPage> {
             ),
             _cardImage(),
             _ingredientes(),
-            _modoDePreparo()
+            _modoDePreparo(),
+            SizedBox(height: 50,)
           ])),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: _centerBottomBar(),

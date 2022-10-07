@@ -1,5 +1,5 @@
 import 'package:app_receitas/models/receitas.dart';
-import 'package:app_receitas/pages/receitas_page.dart';
+import 'package:app_receitas/pages/recipes_page.dart';
 import 'package:app_receitas/repositorie/receitasRepositorie.dart';
 import 'package:flutter/material.dart';
 
@@ -131,9 +131,7 @@ class _HomePageState extends State<HomePage> {
 
 
           ),
-        ),
-      ),
-    );
+        );
   }
 
   Widget _centerBottomBar() {
