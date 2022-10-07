@@ -23,7 +23,7 @@ class _MyRecipesState extends State<MyRecipes> {
       shape: const CircularNotchedRectangle(),
       color: Colors.white,
       child: IconTheme(
-        data: IconThemeData(color: const Color(0xFFE58F65)),
+        data: const IconThemeData(color: Color(0xFFE58F65)),
         child: Padding(
           padding: const EdgeInsets.all(1),
           child: Row(
@@ -32,20 +32,21 @@ class _MyRecipesState extends State<MyRecipes> {
             children: [
               IconButton(
                   onPressed: () {},
-                  icon: Icon(Icons.home_sharp, color: Color(0xFF474747))),
+                  icon: const Icon(Icons.home_sharp, color: Color(0xFF474747))),
               IconButton(
                   onPressed: () {},
-                  icon: Icon(Icons.search_sharp, color: Color(0xFF474747))),
-              SizedBox(
+                  icon:
+                      const Icon(Icons.search_sharp, color: Color(0xFF474747))),
+              const SizedBox(
                 width: 50,
               ),
               IconButton(
                   onPressed: () {},
-                  icon: Icon(Icons.view_timeline_rounded,
+                  icon: const Icon(Icons.view_timeline_rounded,
                       color: Color(0xffE58F65))),
               IconButton(
                   onPressed: () {},
-                  icon: Icon(Icons.person, color: Color(0xFF474747))),
+                  icon: const Icon(Icons.person, color: Color(0xFF474747))),
             ],
           ),
         ),
@@ -89,63 +90,60 @@ class _MyRecipesState extends State<MyRecipes> {
 
     return Expanded(
       flex: 10,
-      child: Container(
-        child: ListView.separated(
-          padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-          scrollDirection: Axis.vertical,
-          shrinkWrap: true,
-          itemBuilder: (BuildContext contexto, int receita) {
-            return GestureDetector(
-              onTap: () => mostrarDetalhes(receitas[receita]),
-              child: Container(
-                width: 300,
-                height: 150,
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30)),
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 5,
+      child: ListView.separated(
+        padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+        scrollDirection: Axis.vertical,
+        shrinkWrap: true,
+        itemBuilder: (BuildContext contexto, int receita) {
+          return GestureDetector(
+            onTap: () => mostrarDetalhes(receitas[receita]),
+            child: SizedBox(
+              width: 300,
+              height: 150,
+              child: Card(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30)),
+                child: Column(
+                  children: [
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    ClipRRect(
+                      borderRadius: const BorderRadius.all(Radius.circular(30)),
+                      child: Image.asset(
+                        receitas[receita].foto,
+                        cacheWidth: 289,
+                        cacheHeight: 110,
                       ),
-                      ClipRRect(
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(30)),
-                        child: Image.asset(
-                          receitas[receita].foto,
-                          cacheWidth: 289,
-                          cacheHeight: 110,
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Text(
+                          receitas[receita].nome,
+                          textAlign: TextAlign.left,
+                          style: const TextStyle(
+                              color: blackTextColor,
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold),
                         ),
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Text(
-                            receitas[receita].nome,
-                            textAlign: TextAlign.left,
-                            style: TextStyle(
-                                color: blackTextColor,
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          Text(
-                            receitas[receita].data,
-                            textAlign: TextAlign.right,
-                          )
-                        ],
-                      ),
-                    ],
-                  ),
+                        Text(
+                          receitas[receita].data,
+                          textAlign: TextAlign.right,
+                        )
+                      ],
+                    ),
+                  ],
                 ),
               ),
-            );
-          },
-          separatorBuilder: (context, __) => const SizedBox(height: 5),
-          itemCount: receitas.length,
-        ),
+            ),
+          );
+        },
+        separatorBuilder: (context, __) => const SizedBox(height: 5),
+        itemCount: receitas.length,
       ),
     );
   }
@@ -160,14 +158,13 @@ class _MyRecipesState extends State<MyRecipes> {
           _headerMyRecipes(),
           Expanded(
               flex: 2,
-              child: Container(
-                  child: SendButton(
-                      onPressed: () {},
-                      text: "Adicionar receita",
-                      icon: const Icon(
-                        Icons.add_circle_outline_sharp,
-                        color: Colors.white,
-                      )))),
+              child: SendButton(
+                  onPressed: () {},
+                  text: "Adicionar receita",
+                  icon: const Icon(
+                    Icons.add_circle_outline_sharp,
+                    color: Colors.white,
+                  ))),
           _listCardRecipes()
         ]),
       ),
