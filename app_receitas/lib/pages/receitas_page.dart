@@ -15,17 +15,6 @@ class ReceitasPage extends StatefulWidget {
 }
 
 class _ReceitasPageState extends State<ReceitasPage> {
-  Widget _centerBottomBar() {
-    return FloatingActionButton(
-      onPressed: () {},
-      backgroundColor: const Color(0xFFE58F65),
-      child: IconButton(
-        onPressed: () {},
-        icon: Image.asset('assets/images/icons/fridgey.png'),
-        iconSize: 100,
-      ),
-    );
-  }
 
   Widget _backButton() {
     return IconButton(
