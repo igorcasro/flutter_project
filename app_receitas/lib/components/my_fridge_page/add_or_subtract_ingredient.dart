@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
 
-import '../../constants.dart';
-
 // ignore: must_be_immutable
 class AddOrSubtractIngredient extends StatelessWidget {
-    late int counter;
-    late String counterText;
-    AddOrSubtractIngredient({
-      Key? key,
-    }) : super(key: key);
+  late int counter;
+  late String counterText;
+  AddOrSubtractIngredient({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     counter = 0;
     counterText = "0";
-    
+
     return Row(children: [
       SizedBox(
         child: Column(
@@ -28,7 +26,7 @@ class AddOrSubtractIngredient extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
                 ),
-                 shadows: [
+                shadows: [
                   BoxShadow(
                     color: Colors.grey.withOpacity(0.4),
                     spreadRadius: 0.1,
@@ -53,32 +51,30 @@ class AddOrSubtractIngredient extends StatelessWidget {
           ],
         ),
       ),
-      
       const SizedBox(width: 10),
-
-            Ink(
-              width: 40,
-              height: 40,
-              decoration: ShapeDecoration(
-                color: const Color.fromARGB(255, 248, 248, 248),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                 
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                Text(counterText, style: TextStyle(
+      Ink(
+          width: 40,
+          height: 40,
+          decoration: ShapeDecoration(
+            color: const Color.fromARGB(255, 248, 248, 248),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                counterText,
+                style: const TextStyle(
                   fontSize: 25,
                   fontWeight: FontWeight.bold,
                   color: Color.fromARGB(255, 121, 121, 121),
-                ),),
-              ],)
-            ),
-
+                ),
+              ),
+            ],
+          )),
       const SizedBox(width: 10),
-
       SizedBox(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -91,7 +87,7 @@ class AddOrSubtractIngredient extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
                 ),
-                 shadows: [
+                shadows: [
                   BoxShadow(
                     color: Colors.grey.withOpacity(0.4),
                     spreadRadius: 0.1,

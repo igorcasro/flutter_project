@@ -1,8 +1,9 @@
+import 'package:app_receitas/components/public/functions.dart';
 import 'package:app_receitas/components/public/text_field_container.dart';
 import 'package:app_receitas/constants.dart';
 import 'package:flutter/material.dart';
 
-class UsedInputTextField extends StatelessWidget {
+class UsedInputTextField extends StatefulWidget {
   final String hintText;
   final IconData icon;
   final ValueChanged<String> onChanged;
@@ -14,17 +15,24 @@ class UsedInputTextField extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  State<UsedInputTextField> createState() => _UsedInputTextFieldState();
+}
+
+class _UsedInputTextFieldState extends State<UsedInputTextField> {
+  @override
   Widget build(BuildContext context) {
     return TextFieldContainer(
-      child: TextField(
-        onChanged: onChanged,
+      child: TextFormField(
+        autovalidateMode: AutovalidateMode.onUserInteraction,
+        validator: (value) => validateEmail(value),
+        onChanged: widget.onChanged,
         decoration: InputDecoration(
           icon: Icon(
-            icon,
+            widget.icon,
             color: blackTextColor,
             size: 35,
           ),
-          hintText: hintText,
+          hintText: widget.hintText,
         ),
       ),
     );
