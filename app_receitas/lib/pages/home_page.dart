@@ -80,14 +80,12 @@ class _HomePageState extends State<HomePage> {
                 borderRadius: BorderRadius.circular(15.0),
               ),
               child: ListTile(
-                leading: Container(
-                  child: ClipRRect(
-                    borderRadius: const BorderRadius.all(Radius.circular(15)),
-                    child: Image.asset(
-                      receitas[receita].foto,
-                      cacheHeight: 100,
-                      cacheWidth: 100,
-                    ),
+                leading: ClipRRect(
+                  borderRadius: const BorderRadius.all(Radius.circular(15)),
+                  child: Image.asset(
+                    receitas[receita].foto,
+                    cacheHeight: 100,
+                    cacheWidth: 100,
                   ),
                 ),
                 title: Text(receitas[receita].nome),
@@ -114,7 +112,7 @@ class _HomePageState extends State<HomePage> {
       shape: const CircularNotchedRectangle(),
       color: Colors.white,
       child: IconTheme(
-        data: IconThemeData(color: const Color(0xFFE58F65)),
+        data: const IconThemeData(color: Color(0xFFE58F65)),
         child: Padding(
           padding: const EdgeInsets.all(1),
           child: Row(
@@ -123,20 +121,21 @@ class _HomePageState extends State<HomePage> {
             children: [
               IconButton(
                   onPressed: () {},
-                  icon: Icon(Icons.home_sharp, color: Color(0xffE58F65))),
+                  icon: const Icon(Icons.home_sharp, color: Color(0xffE58F65))),
               IconButton(
                   onPressed: () {},
-                  icon: Icon(Icons.search_sharp, color: Color(0xFF474747))),
-              SizedBox(
+                  icon:
+                      const Icon(Icons.search_sharp, color: Color(0xFF474747))),
+              const SizedBox(
                 width: 50,
               ),
               IconButton(
                   onPressed: () {},
-                  icon: Icon(Icons.view_timeline_rounded,
+                  icon: const Icon(Icons.view_timeline_rounded,
                       color: Color(0xFF474747))),
               IconButton(
                   onPressed: () {},
-                  icon: Icon(Icons.person, color: Color(0xFF474747))),
+                  icon: const Icon(Icons.person, color: Color(0xFF474747))),
             ],
           ),
         ),
