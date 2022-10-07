@@ -13,7 +13,7 @@ class PossibleRecipeListView extends StatelessWidget {
     final receitas = ReceitaRepositorie.listaReceitas;
 
     return Container(
-        height: 580,
+        height: MediaQuery.of(context).size.height * 0.65,
         margin: const EdgeInsets.fromLTRB(10, 10, 10, 0),
         child: ListView.separated(
           padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
