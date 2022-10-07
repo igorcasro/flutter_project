@@ -5,6 +5,9 @@ import 'package:app_receitas/repositorie/receitasRepositorie.dart';
 import 'package:flutter/material.dart';
 import 'package:app_receitas/constants.dart';
 
+import '../components/public/bottom_bar.dart';
+import '../components/public/center_bottom_bar.dart';
+
 class MyRecipes extends StatefulWidget {
   const MyRecipes({super.key});
 
@@ -169,8 +172,12 @@ class _MyRecipesState extends State<MyRecipes> {
         ]),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: _centerBottomBar(),
-      bottomNavigationBar: _bottomBar(),
+      floatingActionButton: CenterBottomBar(
+        press: () {},
+      ),
+      bottomNavigationBar: BottomBar(
+        press: () {},
+      ),
     );
   }
 }

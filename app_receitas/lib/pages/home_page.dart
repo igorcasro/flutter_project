@@ -3,6 +3,9 @@ import 'package:app_receitas/pages/recipes_page.dart';
 import 'package:app_receitas/repositorie/receitasRepositorie.dart';
 import 'package:flutter/material.dart';
 
+import '../components/public/bottom_bar.dart';
+import '../components/public/center_bottom_bar.dart';
+
 // ignore: use_key_in_widget_constructors
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -169,8 +172,12 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: _centerBottomBar(),
-      bottomNavigationBar: _bottomBar(),
+      floatingActionButton: CenterBottomBar(
+        press: () {},
+      ),
+      bottomNavigationBar: BottomBar(
+        press: () {},
+      ),
     );
   }
 }
