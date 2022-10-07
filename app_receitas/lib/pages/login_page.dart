@@ -6,6 +6,7 @@ import 'package:app_receitas/components/public/separator_widget.dart';
 import 'package:app_receitas/components/public/used_input_password_field.dart';
 import 'package:app_receitas/components/public/used_input_text_field.dart';
 import 'package:app_receitas/constants.dart';
+import 'package:app_receitas/pages/home_page.dart';
 import 'package:app_receitas/pages/recover_password_page.dart';
 import 'package:app_receitas/pages/register_page.dart';
 
@@ -48,7 +49,11 @@ class LoginPage extends StatelessWidget {
             ),
             SendButton(
               text: "Fazer login",
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushReplacement(MaterialPageRoute(
+                  builder: ((context) => const HomePage()),
+                ));
+              },
               icon: const Icon(null),
             ),
             const SeparatorWidget(),

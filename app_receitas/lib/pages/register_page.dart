@@ -1,5 +1,6 @@
 import 'package:app_receitas/components/public/back_to_start_button.dart';
 import 'package:app_receitas/components/public/send_button.dart';
+import 'package:app_receitas/components/public/telephone_input_text_field.dart';
 import 'package:app_receitas/components/public/used_input_password_field.dart';
 import 'package:app_receitas/components/public/used_input_text_field.dart';
 import 'package:app_receitas/constants.dart';
@@ -26,7 +27,7 @@ class RegisterPage extends StatelessWidget {
               alignment: const FractionalOffset(0.1, 0),
               child: text('Cadastre-se', 55),
             ),
-            UsedInputTextField(
+            CommonInputTextField(
               hintText: 'Nome de usuário',
               icon: Icons.person,
               onChanged: (value) {},
@@ -39,7 +40,7 @@ class RegisterPage extends StatelessWidget {
               onChanged: (value) {},
               endSuffixIcon: false,
             ),
-            UsedInputTextField(
+            CommonInputTextField(
               hintText: 'Telefone',
               icon: Icons.local_phone_outlined,
               onChanged: (value) {},

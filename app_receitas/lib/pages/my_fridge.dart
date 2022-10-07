@@ -15,55 +15,62 @@ class MyFridgePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 243, 243, 243),
       body: SingleChildScrollView(
-        child: x? Column(
-          children: [
-            const SizedBox(height: 50),
-            Align(
-              alignment: const FractionalOffset(0, 0),
-              child: text('Minha geladeira', 40),
-            ),
-            const SizedBox(height: 5),
-            Align(
-              alignment: const FractionalOffset(0, 0),
-              child: text('Adicionar à geladeira', 25),
-            ),
-            const AddIngredientInput(),
-            const AddIngredientListview(),
-          ],
-        ) : 
-        Column(
-            children: [
-              const SizedBox(height: 50),
-            Align(
-              alignment: const FractionalOffset(0, 0),
-              child: text('Minha geladeira', 40),
-            ),
-            const SizedBox(height: 5),
-            Align(
-              alignment: const FractionalOffset(0, 0),
-              child: text('Adicionar à geladeira', 25),
-            ),
-            const AddIngredientInput(),
-            const SizedBox(height: 110),
-            SizedBox(
-              width: 250,
-              child: Column(children: [
-                Image.asset(
-                  './assets/images/icons/oh-no.png',
-                  width: 90,
-                ),
+        child: x
+            ? Column(
+                children: [
+                  const SizedBox(height: 50),
+                  Align(
+                    alignment: const FractionalOffset(0, 0),
+                    child: text('Minha geladeira', 40),
+                  ),
+                  const SizedBox(height: 5),
+                  Align(
+                    alignment: const FractionalOffset(0, 0),
+                    child: text('Adicionar à geladeira', 25),
+                  ),
+                  const AddIngredientInput(),
+                  const AddIngredientListview(),
+                ],
+              )
+            : Column(children: [
+                const SizedBox(height: 50),
                 Align(
                   alignment: const FractionalOffset(0, 0),
-                  child: emptyText('Sua geladeira está vazia! Adicione itens ou vá fazer compras :P', 20),
+                  child: text('Minha geladeira', 40),
                 ),
-              ],)
-            )
-          ]),
+                const SizedBox(height: 5),
+                Align(
+                  alignment: const FractionalOffset(0, 0),
+                  child: text('Adicionar à geladeira', 25),
+                ),
+                const AddIngredientInput(),
+                const SizedBox(height: 110),
+                SizedBox(
+                    width: 250,
+                    child: Column(
+                      children: [
+                        Image.asset(
+                          './assets/images/icons/oh-no.png',
+                          width: 90,
+                        ),
+                        Align(
+                          alignment: const FractionalOffset(0, 0),
+                          child: emptyText(
+                              'Sua geladeira está vazia! Adicione itens ou vá fazer compras :P',
+                              20),
+                        ),
+                      ],
+                    ))
+              ]),
       ),
       extendBody: true,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: CenterBottomBar(press: () {  },),
-      bottomNavigationBar: BottomBar(press: () {  },),
+      floatingActionButton: CenterBottomBar(
+        press: () {},
+      ),
+      bottomNavigationBar: BottomBar(
+        press: () {},
+      ),
     );
   }
 }
