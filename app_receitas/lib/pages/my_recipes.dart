@@ -1,5 +1,6 @@
 import 'package:app_receitas/components/public/send_button.dart';
 import 'package:app_receitas/models/receitas.dart';
+import 'package:app_receitas/pages/add_new_recipe_page.dart';
 import 'package:app_receitas/pages/recipes_page.dart';
 import 'package:app_receitas/repositorie/receitasRepositorie.dart';
 import 'package:flutter/material.dart';
@@ -16,9 +17,15 @@ class MyRecipes extends StatefulWidget {
 }
 
 class _MyRecipesState extends State<MyRecipes> {
+
   mostrarDetalhes(Receita receita) {
     Navigator.push(context,
         MaterialPageRoute(builder: (_) => ReceitasPage(receita: receita)));
+  }
+
+  addNewRecipes() {
+    Navigator.push(context,
+        MaterialPageRoute(builder: (_) => AddNewRecipePage()));
   }
 
   Widget _bottomBar() {
@@ -151,6 +158,36 @@ class _MyRecipesState extends State<MyRecipes> {
     );
   }
 
+  Widget _addRecipesButtom(){
+    Size size = MediaQuery.of(context).size;
+    return Expanded(
+      flex: 2,
+      child: Container(
+        margin: const EdgeInsets.symmetric(vertical: 10),
+        height: size.height * 0.07,
+        width: size.width * 0.85,
+        child: ElevatedButton.icon(
+          icon: const Icon(Icons.add_circle_outline_sharp, color: Colors.white,),
+          style: ElevatedButton.styleFrom(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(29),
+            ),
+            backgroundColor: primaryColor,
+            textStyle: const TextStyle(
+              fontSize: 20,
+              color: loginAndRegisterColor,
+            ),
+          ),
+          onPressed: () => addNewRecipes(),
+          label: Text(
+            "Adicionar nova receita",
+            style: const TextStyle(color: loginAndRegisterColor),
+          ),
+          
+        ),
+      ),
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -159,15 +196,7 @@ class _MyRecipesState extends State<MyRecipes> {
         padding: const EdgeInsets.all(20),
         child: Column(children: [
           _headerMyRecipes(),
-          Expanded(
-              flex: 2,
-              child: SendButton(
-                  onPressed: () {},
-                  text: "Adicionar receita",
-                  icon: const Icon(
-                    Icons.add_circle_outline_sharp,
-                    color: Colors.white,
-                  ))),
+          _addRecipesButtom(),
           _listCardRecipes()
         ]),
       ),

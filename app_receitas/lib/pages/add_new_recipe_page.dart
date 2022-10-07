@@ -126,7 +126,6 @@ class _AddNewRecipePageState extends State<AddNewRecipePage> {
             SendButton(
               onPressed: () {},
               text: 'Adicionar',
-              icon: const Icon(null),
             ),
           ],
         ),
