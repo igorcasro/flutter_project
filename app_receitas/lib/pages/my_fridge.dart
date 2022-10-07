@@ -32,8 +32,12 @@ class MyFridgePage extends StatelessWidget {
       ),
       extendBody: true,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: CenterBottomBar(press: () {  },),
-      bottomNavigationBar: BottomBar(press: () {  },),
+      floatingActionButton: CenterBottomBar(
+        press: () {},
+      ),
+      bottomNavigationBar: BottomBar(
+        press: () {},
+      ),
     );
   }
 }

@@ -10,7 +10,6 @@ class SendButton extends StatelessWidget {
     required this.onPressed,
     required this.text,
     required this.icon,
-
   }) : super(key: key);
 
   @override
@@ -35,7 +34,8 @@ class SendButton extends StatelessWidget {
         label: Text(
           text,
           style: const TextStyle(color: loginAndRegisterColor),
-        ), icon: icon,
+        ),
+        icon: icon,
       ),
     );
   }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 const primaryColor = Color(0xFFE58F65);
 const loginAndRegisterColor = Color(0XFFFFFFFF);
-const whiteBackgroundColor = Color(0XFFF8F8F8);
+const whiteBackgroundColor = Color(0XFFF3F3F3);
 const blackTextColor = Color(0xFF474747);
 const searchBoxAndNotFoundColor = Color(0xFFCCD2E3);
 const linkColor = Color.fromARGB(255, 15, 15, 237);
