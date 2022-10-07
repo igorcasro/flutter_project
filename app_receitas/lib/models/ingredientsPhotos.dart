@@ -2,14 +2,12 @@
 
 import 'package:app_receitas/models/ingredientes.dart';
 
-class IngredienteReceita{
+class IngredientePhotos{
   Ingrediente ingrediente;
-  double quantidade;
-  String uMedida;
+  String foto;
 
-  IngredienteReceita({
+  IngredientePhotos({
     required this.ingrediente,
-    required this.quantidade,
-    required this.uMedida
+    required this.foto
   });
 }

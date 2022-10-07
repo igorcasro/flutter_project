@@ -1,6 +1,8 @@
 import 'package:app_receitas/models/receitas.dart';
 import 'package:flutter/material.dart';
 
+import '../components/public/bottom_bar.dart';
+
 // ignore: must_be_immutable
 class ReceitasPage extends StatefulWidget {
   Receita receita;
@@ -12,41 +14,6 @@ class ReceitasPage extends StatefulWidget {
 }
 
 class _ReceitasPageState extends State<ReceitasPage> {
-  Widget _bottomBar() {
-    return BottomAppBar(
-      shape: const CircularNotchedRectangle(),
-      color: Colors.white,
-      child: IconTheme(
-        data: IconThemeData(color: const Color(0xFFE58F65)),
-        child: Padding(
-          padding: const EdgeInsets.all(1),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.home_sharp, color: Color(0xFF474747))),
-              IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.search_sharp, color: Color(0xffE58F65))),
-              SizedBox(
-                width: 50,
-              ),
-              IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.view_timeline_rounded,
-                      color: Color(0xFF474747))),
-              IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.person, color: Color(0xFF474747))),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
   Widget _centerBottomBar() {
     return FloatingActionButton(
       onPressed: () {},
@@ -71,10 +38,10 @@ class _ReceitasPageState extends State<ReceitasPage> {
     return Card(
         margin: const EdgeInsets.only(top: 10.0, left: 15.0, right: 25),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-        child: Container(
+        child: SizedBox(
             height: 245,
             child: Column(children: [
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               ClipRRect(
                 borderRadius: const BorderRadius.all(Radius.circular(30)),
                 child: Image.asset(
@@ -85,13 +52,13 @@ class _ReceitasPageState extends State<ReceitasPage> {
               ),
               ListTile(
                 horizontalTitleGap: 0,
-                contentPadding: EdgeInsets.symmetric(horizontal: 10),
-                leading: Icon(
+                contentPadding: const EdgeInsets.symmetric(horizontal: 10),
+                leading: const Icon(
                   Icons.timer_outlined,
                   color: Color(0xffE58F65),
                   size: 30,
                 ),
-                title: Text(
+                title: const Text(
                   "PREPARO",
                   style: TextStyle(
                     color: Color(0xffE58F65),
@@ -132,11 +99,9 @@ class _ReceitasPageState extends State<ReceitasPage> {
                   return Align(
                       alignment: Alignment.topLeft,
                       child: Text(
-                        widget.receita.ingredientes[index].quantidade.toInt().toString() +
-                          " " + widget.receita.ingredientes[index].uMedida +" de" +
-                          " " +widget.receita.ingredientes[index].ingrediente.nome.toString(),
+                        "${widget.receita.ingredientes[index].quantidade.toInt()} ${widget.receita.ingredientes[index].uMedida} de ${widget.receita.ingredientes[index].ingrediente.nome}",
                         textAlign: TextAlign.justify,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 20,
                         ),
                       ));
@@ -216,7 +181,7 @@ class _ReceitasPageState extends State<ReceitasPage> {
           ])),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: _centerBottomBar(),
-      bottomNavigationBar: _bottomBar(),
+      bottomNavigationBar: BottomBar(press: () {  },),
     );
   }
 }

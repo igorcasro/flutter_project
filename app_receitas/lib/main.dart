@@ -1,6 +1,5 @@
 import 'package:app_receitas/constants.dart';
-import 'package:app_receitas/pages/login_page.dart';
-import 'package:app_receitas/pages/register_page.dart';
+import 'package:app_receitas/pages/find_recipes.dart';
 import 'package:flutter/material.dart';
 
 
@@ -18,7 +17,7 @@ class MyApp extends StatelessWidget {
         primaryColor: primaryColor,
         scaffoldBackgroundColor: whiteBackgroundColor,
       ),
-      home: const LoginPage(),
+      home: const FindRecipesPage(),
     );
   }
 }
