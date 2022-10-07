@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../constants.dart';
+
 // ignore: must_be_immutable
 class AddOrSubtractIngredient extends StatelessWidget {
     late int counter;
@@ -36,11 +38,13 @@ class AddOrSubtractIngredient extends StatelessWidget {
                 ],
               ),
               child: IconButton(
+                padding: const EdgeInsets.all(0.0),
                 onPressed: () {
                   counter--;
                 },
                 icon: const Icon(
                   Icons.add,
+                  size: 30,
                   color: Color.fromARGB(255, 229, 144, 101),
                 ),
                 iconSize: 20.0,
@@ -52,17 +56,27 @@ class AddOrSubtractIngredient extends StatelessWidget {
       
       const SizedBox(width: 10),
 
-      SizedBox(
-        width: 40,
-        height: 40,
-          child: TextField(
-            decoration: InputDecoration(
-              labelText: counterText,
-              border: const OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(10))),
+            Ink(
+              width: 40,
+              height: 40,
+              decoration: ShapeDecoration(
+                color: const Color.fromARGB(255, 248, 248, 248),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                 
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                Text(counterText, style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  color: Color.fromARGB(255, 121, 121, 121),
+                ),),
+              ],)
             ),
-          ),
-      ),
-      
+
       const SizedBox(width: 10),
 
       SizedBox(
@@ -87,10 +101,12 @@ class AddOrSubtractIngredient extends StatelessWidget {
                 ],
               ),
               child: IconButton(
+                padding: const EdgeInsets.all(0.0),
                 onPressed: () {
                   counter--;
                 },
                 icon: const Icon(
+                  size: 30,
                   Icons.remove,
                   color: Color.fromARGB(255, 229, 144, 101),
                 ),
