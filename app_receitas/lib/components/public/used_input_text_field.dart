@@ -19,13 +19,15 @@ class UsedInputTextField extends StatefulWidget {
 }
 
 class _UsedInputTextFieldState extends State<UsedInputTextField> {
+  final email = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return TextFieldContainer(
       child: TextFormField(
+        key: email,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         validator: (value) => validateEmail(value),
-        onChanged: widget.onChanged,
+        onChanged: ((value) => email),
         decoration: InputDecoration(
           icon: Icon(
             widget.icon,

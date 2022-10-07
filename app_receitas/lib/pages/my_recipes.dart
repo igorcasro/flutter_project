@@ -1,4 +1,3 @@
-import 'package:app_receitas/components/public/send_button.dart';
 import 'package:app_receitas/models/receitas.dart';
 import 'package:app_receitas/pages/add_new_recipe_page.dart';
 import 'package:app_receitas/pages/recipes_page.dart';
@@ -17,15 +16,14 @@ class MyRecipes extends StatefulWidget {
 }
 
 class _MyRecipesState extends State<MyRecipes> {
-
   mostrarDetalhes(Receita receita) {
     Navigator.push(context,
         MaterialPageRoute(builder: (_) => ReceitasPage(receita: receita)));
   }
 
   addNewRecipes() {
-    Navigator.push(context,
-        MaterialPageRoute(builder: (_) => AddNewRecipePage()));
+    Navigator.push(
+        context, MaterialPageRoute(builder: (_) => const AddNewRecipePage()));
   }
 
   Widget _bottomBar() {
@@ -158,7 +156,7 @@ class _MyRecipesState extends State<MyRecipes> {
     );
   }
 
-  Widget _addRecipesButtom(){
+  Widget _addRecipesButtom() {
     Size size = MediaQuery.of(context).size;
     return Expanded(
       flex: 2,
@@ -167,7 +165,10 @@ class _MyRecipesState extends State<MyRecipes> {
         height: size.height * 0.07,
         width: size.width * 0.85,
         child: ElevatedButton.icon(
-          icon: const Icon(Icons.add_circle_outline_sharp, color: Colors.white,),
+          icon: const Icon(
+            Icons.add_circle_outline_sharp,
+            color: Colors.white,
+          ),
           style: ElevatedButton.styleFrom(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(29),
@@ -179,15 +180,15 @@ class _MyRecipesState extends State<MyRecipes> {
             ),
           ),
           onPressed: () => addNewRecipes(),
-          label: Text(
+          label: const Text(
             "Adicionar nova receita",
-            style: const TextStyle(color: loginAndRegisterColor),
+            style: TextStyle(color: loginAndRegisterColor),
           ),
-          
         ),
       ),
     );
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         primaryColor: primaryColor,
         scaffoldBackgroundColor: whiteBackgroundColor,
       ),
-      home: const MyRecipes(),
+      home: const LoginPage(),
     );
   }
 }
