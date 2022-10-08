@@ -1,5 +1,5 @@
 
-![Logo](https://imageup.me/images/bb82b784-c704-452f-9866-b23152ba7750.jpeg)
+![Logo](https://github.com/igorcasro/flutter_project/blob/main/app_receitas/assets/Fridgey_page-0001.jpg)
 
 ![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
 ![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)
