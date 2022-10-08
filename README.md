@@ -1,11 +1,14 @@
 
 ![Logo](https://github.com/igorcasro/flutter_project/blob/main/app_receitas/assets/Fridgey_page-0001.jpg)
 
+<center>
 ![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
 ![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)
 ![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)
 ![Git](https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white)
 ![Github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)
+</center>
+
 # Fridgey
 
 Cansado de chegar a hora do almoço e não saber o que cozinhar? Ou de deixar um ingrediente guardado por tanto tempo que ele chega a estragar? Fridgey chegou para resolver os seus problemas!
