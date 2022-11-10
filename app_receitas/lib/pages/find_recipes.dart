@@ -62,10 +62,7 @@ class FindRecipesPage extends StatelessWidget {
                                 20),
                           ),
                         ],
-                      )),
-                  const SizedBox(
-                    height: 50,
-                  )
+                      ))
                 ])),
       extendBody: true,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
