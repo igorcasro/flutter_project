@@ -1,7 +1,12 @@
+import 'dart:js';
+
 import 'package:app_receitas/constants.dart';
 import 'package:app_receitas/pages/login_page.dart';
+import 'package:app_receitas/services/auth_service.dart';
+import 'package:app_receitas/widgets/auth_check.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -11,7 +16,14 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => AuthService()),
+    ],
+    child: MyApp(),
+    )
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -27,7 +39,7 @@ class MyApp extends StatelessWidget {
         primaryColor: primaryColor,
         scaffoldBackgroundColor: whiteBackgroundColor,
       ),
-      home: const LoginPage(),
+      home: const AuthCheck(),
     );
   }
 }

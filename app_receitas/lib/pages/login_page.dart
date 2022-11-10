@@ -9,8 +9,10 @@ import 'package:app_receitas/constants.dart';
 import 'package:app_receitas/pages/home_page.dart';
 import 'package:app_receitas/pages/recover_password_page.dart';
 import 'package:app_receitas/pages/register_page.dart';
+import 'package:app_receitas/services/auth_service.dart';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -28,10 +30,59 @@ class _LoginPageState extends State<LoginPage> {
   late bool _passwordVisible;
   final bool endSuffixIcon = true;
 
+  late bool isLogin = true;
+  late String titulo;
+  late String actionButton;
+  late String toggleButton;
+
   @override
   void initState() {
     super.initState();
+    setFormAction(true);
     _passwordVisible = false;
+  }
+
+  setFormAction(bool action){
+    setState(() {
+      isLogin = action;
+      if(isLogin){
+        titulo = "Bem vindo!";
+        actionButton = "Login";
+        toggleButton = "Não possui uma conta? Cadastre-se!";
+      } else {
+        titulo = "Crie sua conta!";
+        actionButton = "Cadastrar";
+        toggleButton = "Já tem uma conta? Faça login.";
+      }
+    });
+  }
+
+  login() async {
+    try {
+      await context.read<AuthService>().login(
+        _email.toString(),
+        _password.toString()
+      );
+    } on AuthException catch (e) {
+      ScaffoldMessenger.of(context)
+      .showSnackBar(SnackBar(
+        content: Text(e.message)
+      ));
+    }
+  }
+
+  registrar() async {
+    try {
+      await context.read<AuthService>().registrar(
+        _email.toString(),
+        _password.toString()
+      );
+    } on AuthException catch (e) {
+      ScaffoldMessenger.of(context)
+      .showSnackBar(SnackBar(
+        content: Text(e.message)
+      ));
+    }
   }
 
   @override
@@ -121,29 +172,36 @@ class _LoginPageState extends State<LoginPage> {
             SendButton(
               text: "Fazer login",
               onPressed: () {
-                (email == "igorpfcastro@gmail.com" && senha == "123456")
-                    ? Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: ((context) => const HomePage()),
-                      ))
-                    : showDialog<void>(
-                        context: context,
-                        barrierDismissible: false,
-                        builder: (context) {
-                          return AlertDialog(
-                            title: const Text('Valores incorretos.'),
-                            content: const Text(
-                                'Favor inserir valores corretos para email e senha.'),
-                            actions: <Widget>[
-                              TextButton(
-                                child: const Text('Ok'),
-                                onPressed: () {
-                                  Navigator.of(context).pop();
-                                },
-                              ),
-                            ],
-                          );
-                        },
-                      );
+                if(_form.currentState!.validate()) {
+                  if(isLogin) {
+                    login();
+                  } else {
+                    registrar();
+                  }
+                }
+                  
+                    // ? Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    //     builder: ((context) => const HomePage()),
+                    //   ))
+                    // : showDialog<void>(
+                    //     context: context,
+                    //     barrierDismissible: false,
+                    //     builder: (context) {
+                    //       return AlertDialog(
+                    //         title: const Text('Valores incorretos.'),
+                    //         content: const Text(
+                    //             'Favor inserir valores corretos para email e senha.'),
+                    //         actions: <Widget>[
+                    //           TextButton(
+                    //             child: const Text('Ok'),
+                    //             onPressed: () {
+                    //               Navigator.of(context).pop();
+                    //             },
+                    //           ),
+                    //         ],
+                    //       );
+                    //     },
+                    //   );
               },
             ),
             const SeparatorWidget(),
