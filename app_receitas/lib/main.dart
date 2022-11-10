@@ -1,7 +1,4 @@
-import 'dart:js';
-
 import 'package:app_receitas/constants.dart';
-import 'package:app_receitas/pages/login_page.dart';
 import 'package:app_receitas/services/auth_service.dart';
 import 'package:app_receitas/widgets/auth_check.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +18,7 @@ void main() async {
       providers: [
         ChangeNotifierProvider(create: (context) => AuthService()),
     ],
-    child: MyApp(),
+    child: const MyApp(),
     )
   );
 }
