@@ -16,16 +16,17 @@ class _AuthCheckState extends State<AuthCheck> {
   @override
   Widget build(BuildContext context) {
     AuthService auth = Provider.of<AuthService>(context);
-    print(auth.usuario);
+    print("user: ");
+    print(auth.usuario?.uid);
+    
     if(auth.isLoading) {
       return loading();
     } else if (auth.usuario == null){
-      return LoginPage();
+      return const LoginPage();
     } else {
-      return HomePage();
+      return const HomePage();
     }
   }
-
 }
 
 loading() {

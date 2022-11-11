@@ -21,11 +21,12 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final _form = GlobalKey<FormState>();
-  final _email = GlobalKey<FormState>();
-  late String email = '';
-  final _password = GlobalKey<FormState>();
-  late String senha = '';
+  final formKey = GlobalKey<FormState>();
+  final email = TextEditingController();
+  final senha = TextEditingController();
+
+  bool loading = false;
+
   late bool _passwordVisible;
   final bool endSuffixIcon = true;
 
@@ -33,6 +34,8 @@ class _LoginPageState extends State<LoginPage> {
   late String titulo;
   late String actionButton;
   late String toggleButton;
+
+  
 
   @override
   void initState() {
@@ -57,12 +60,18 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   login() async {
+    setState(() {
+      loading = true;
+    });
     try {
       await context.read<AuthService>().login(
-        _email.toString(),
-        _password.toString()
+        email.text,
+        senha.text,
       );
     } on AuthException catch (e) {
+      setState(() {
+        loading = false;
+      });
       ScaffoldMessenger.of(context)
       .showSnackBar(SnackBar(
         content: Text(e.message)
@@ -75,136 +84,120 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       backgroundColor: loginAndRegisterColor,
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Image.asset(
-              './assets/images/logo_inicial.png',
-              width: double.infinity,
-            ),
-            Align(
-              alignment: const FractionalOffset(0.04, 0),
-              child: text('Login', 40),
-            ),
-            Form(
-              key: _form,
-              child: TextFieldContainer(
-                child: TextFormField(
-                  key: _email,
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
-                  validator: (value) => validateEmail(value),
-                  onChanged: (value) {
-                    setState(() {
-                      email = (value.isEmpty) ? '' : value;
-                    });
-                  },
-                  decoration: const InputDecoration(
-                    icon: Icon(
-                      Icons.email_outlined,
-                      color: blackTextColor,
-                      size: 35,
+        child: Column(children: [ !loading ? 
+          Column(
+            children: [
+              Image.asset(
+                './assets/images/logo_inicial.png',
+                width: double.infinity,
+              ),
+              Align(
+                alignment: const FractionalOffset(0.04, 0),
+                child: text('Login', 40),
+              ),
+              Form(
+                key: formKey,
+                child: TextFieldContainer(
+                  child: TextFormField(
+                    controller: email,
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    validator: (value) => validateEmail(value),
+                    decoration: const InputDecoration(
+                      icon: Icon(
+                        Icons.email_outlined,
+                        color: blackTextColor,
+                        size: 35,
+                      ),
+                      hintText: 'E-mail',
                     ),
-                    hintText: 'E-mail',
                   ),
                 ),
               ),
-            ),
-            TextFieldContainer(
-              child: TextFormField(
-                key: _password,
-                obscureText: !_passwordVisible,
-                onChanged: (value) {
-                  setState(() {
-                    senha = (value.isEmpty) ? '' : value;
-                  });
-                },
-                decoration: InputDecoration(
-                  hintText: "Senha",
-                  icon: const Icon(
-                    Icons.lock_outline,
-                    color: blackTextColor,
-                    size: 35,
+              TextFieldContainer(
+                child: Column(children: [
+                  TextFormField(
+                    controller: senha,
+                    obscureText: !_passwordVisible,
+                    decoration: InputDecoration(
+                      hintText: "Senha",
+                      icon: const Icon(
+                        Icons.lock_outline,
+                        color: blackTextColor,
+                        size: 35,
+                      ),
+                      suffixIcon: (endSuffixIcon
+                          ? IconButton(
+                              icon: Icon(
+                                _passwordVisible
+                                    ? Icons.visibility_outlined
+                                    : Icons.visibility_off_outlined,
+                                color: blackTextColor,
+                              ),
+                              onPressed: () {
+                                // Update the state i.e. toogle the state of passwordVisible variable
+                                setState(() {
+                                  _passwordVisible = !_passwordVisible;
+                                });
+                              },
+                              color: blackTextColor,
+                            )
+                          : null),
+                    ),
                   ),
-                  suffixIcon: (endSuffixIcon
-                      ? IconButton(
-                          icon: Icon(
-                            _passwordVisible
-                                ? Icons.visibility_outlined
-                                : Icons.visibility_off_outlined,
-                            color: blackTextColor,
-                          ),
-                          onPressed: () {
-                            // Update the state i.e. toogle the state of passwordVisible variable
-                            setState(() {
-                              _passwordVisible = !_passwordVisible;
-                            });
-                          },
-                          color: blackTextColor,
-                        )
-                      : null),
+                  ForgotYourPasswordCheck(
+                  press: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: ((context) => const RecoverPasswordPage()),
+                      ),
+                    );
+                  },
                 ),
-              ),
-            ),
-            ForgotYourPasswordCheck(
-              press: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: ((context) => const RecoverPasswordPage()),
-                  ),
-                );
-              },
-            ),
-            SendButton(
-              text: "Fazer login",
-              onPressed: () {
-                if(_form.currentState!.validate()) {
-                  login();
-                }
-                  
-                    // ? Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    //     builder: ((context) => const HomePage()),
-                    //   ))
-                    // : showDialog<void>(
-                    //     context: context,
-                    //     barrierDismissible: false,
-                    //     builder: (context) {
-                    //       return AlertDialog(
-                    //         title: const Text('Valores incorretos.'),
-                    //         content: const Text(
-                    //             'Favor inserir valores corretos para email e senha.'),
-                    //         actions: <Widget>[
-                    //           TextButton(
-                    //             child: const Text('Ok'),
-                    //             onPressed: () {
-                    //               Navigator.of(context).pop();
-                    //             },
-                    //           ),
-                    //         ],
-                    //       );
-                    //     },
-                    //   );
-              },
-            ),
-            const SeparatorWidget(),
-            const SizedBox(height: 5),
-            GoogleButton(
-              onPressed: () {},
-            ),
-            NewAroundHereCheck(
-              press: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: ((context) => const RegisterPage()),
-                  ),
-                );
-              },
-            ),
-            // const SizedBox(height: 10),
-            // Text(email),
-          ],
+                SendButton(
+                  text: "Fazer login",
+                  onPressed: () {
+                    if(formKey.currentState!.validate()) {
+                      login();
+                    }
+                  },
+                ),
+                const SeparatorWidget(),
+                const SizedBox(height: 5),
+                GoogleButton(
+                  onPressed: () {},
+                ),
+                NewAroundHereCheck(
+                  press: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: ((context) => const RegisterPage()),
+                      ),
+                    );
+                  },
+                ),
+            ],
+          ) 
         ),
-      ),
+      ]) : Column(children: [
+        const Padding(
+          padding: EdgeInsets.only(left: 90, top: 400),
+          child: SizedBox(
+            width: 24,
+            height: 24,
+            child: CircularProgressIndicator(
+              color: Color.fromARGB(255, 255, 109, 64),
+            ),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.only(left: 70, top: 10),
+          child: text("Realizando login...", 24),
+        )
+      ],) 
+      ])
+      )
     );
   }
 }

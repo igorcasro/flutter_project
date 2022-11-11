@@ -1,9 +1,7 @@
 import 'package:app_receitas/components/public/back_to_start_button.dart';
 import 'package:app_receitas/components/public/send_button.dart';
-import 'package:app_receitas/components/public/telephone_input_text_field.dart';
-import 'package:app_receitas/components/public/used_input_password_field.dart';
-import 'package:app_receitas/components/public/used_input_text_field.dart';
 import 'package:app_receitas/constants.dart';
+import 'package:app_receitas/pages/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -17,13 +15,13 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-  final _form = GlobalKey<FormState>();
   final _email = TextEditingController();
   late String email = '';
   final _password = TextEditingController();
   late String senha = '';
   late bool _passwordVisible;
   final bool endSuffixIcon = true;
+  bool loading = false;
 
   late bool isLogin = true;
   late String titulo;
@@ -37,12 +35,24 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 
   registrar() async {
+    setState(() {
+        loading = true;
+    });
+
     try {
       await context.read<AuthService>().registrar(
         _email.text,
         _password.text
       );
+
+    setState(() {
+        loading = false;
+    });
     } on AuthException catch (e) {
+      setState(() {
+        loading = false;
+      });
+
       ScaffoldMessenger.of(context)
       .showSnackBar(SnackBar(
         content: Text(e.message)
@@ -120,7 +130,10 @@ class _RegisterPageState extends State<RegisterPage> {
               alignment: Alignment.bottomCenter,
               child: BackToStartButton(
                 onPressed: () {
-                  Navigator.pop(context);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const LoginPage()),
+                  );
                 },
               ),
             ),

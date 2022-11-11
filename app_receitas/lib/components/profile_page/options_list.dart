@@ -71,25 +71,28 @@ class _OptionsListState extends State<OptionsList> {
               iconColor: Color.fromARGB(255, 229, 144, 101),
             ),
           ),
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(29),
-              ),
-              backgroundColor: primaryColor,
-              textStyle: const TextStyle(
-                fontSize: 20,
-                color: loginAndRegisterColor,
+          const Divider(),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 24),
+              child: OutlinedButton(
+                onPressed: () => context.read<AuthService>().logout(),
+                style: OutlinedButton.styleFrom(
+                  foregroundColor: Colors.red,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Padding(
+                      padding: EdgeInsets.all(16.0),
+                      child: Text(
+                        'Sair do App',
+                        style: TextStyle(fontSize: 18),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
-            onPressed: () => {
-              logout()
-            },
-            child: const Text(
-              "Sair",
-              style: TextStyle(color: loginAndRegisterColor),
-            ),
-          ),
           // const Card(
           //   child: ListTile(
           //     leading: Icon(Icons.logout_outlined),

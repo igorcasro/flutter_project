@@ -53,7 +53,7 @@ class BottomBar extends StatelessWidget {
               IconButton(
                   onPressed: () {
                     Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: ((context) => const ProfilePage()),
+                      builder: ((context) => ProfilePage()),
                     ));
                   },
                   icon: const Icon(Icons.person, color: Color(0xFF474747))),

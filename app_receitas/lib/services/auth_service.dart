@@ -1,4 +1,3 @@
-import 'package:app_receitas/pages/login_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -10,7 +9,7 @@ class AuthException implements Exception {
 class AuthService extends ChangeNotifier {
  final FirebaseAuth _auth = FirebaseAuth.instance;
  User? usuario;
- bool isLoading = true;
+ bool isLoading = false;
 
  AuthService(){
   _authCheck();
@@ -64,6 +63,5 @@ class AuthService extends ChangeNotifier {
  logout() async {
   await _auth.signOut();
   _getUser();
-  return LoginPage();
  }
 }
