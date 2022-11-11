@@ -2,11 +2,14 @@ import 'package:app_receitas/models/receitas.dart';
 import 'package:app_receitas/pages/add_new_recipe_page.dart';
 import 'package:app_receitas/pages/recipes_page.dart';
 import 'package:app_receitas/repositorie/receitasRepositorie.dart';
+import 'package:blobs/blobs.dart';
 import 'package:flutter/material.dart';
 import 'package:app_receitas/constants.dart';
 
+import '../components/public/add_recipe_button.dart';
 import '../components/public/bottom_bar.dart';
 import '../components/public/center_bottom_bar.dart';
+import '../components/public/send_button.dart';
 
 class MyRecipes extends StatefulWidget {
   const MyRecipes({super.key});
@@ -26,80 +29,13 @@ class _MyRecipesState extends State<MyRecipes> {
         context, MaterialPageRoute(builder: (_) => const AddNewRecipePage()));
   }
 
-  // Widget _bottomBar() {
-  //   return BottomAppBar(
-  //     shape: const CircularNotchedRectangle(),
-  //     color: Colors.white,
-  //     child: IconTheme(
-  //       data: const IconThemeData(color: Color(0xFFE58F65)),
-  //       child: Padding(
-  //         padding: const EdgeInsets.all(1),
-  //         child: Row(
-  //           mainAxisSize: MainAxisSize.min,
-  //           mainAxisAlignment: MainAxisAlignment.spaceAround,
-  //           children: [
-  //             IconButton(
-  //                 onPressed: () {},
-  //                 icon: const Icon(Icons.home_sharp, color: Color(0xFF474747))),
-  //             IconButton(
-  //                 onPressed: () {},
-  //                 icon:
-  //                     const Icon(Icons.search_sharp, color: Color(0xFF474747))),
-  //             const SizedBox(
-  //               width: 50,
-  //             ),
-  //             IconButton(
-  //                 onPressed: () {},
-  //                 icon: const Icon(Icons.view_timeline_rounded,
-  //                     color: Color(0xffE58F65))),
-  //             IconButton(
-  //                 onPressed: () {},
-  //                 icon: const Icon(Icons.person, color: Color(0xFF474747))),
-  //           ],
-  //         ),
-  //       ),
-  //     ),
-  //   );
-  // }
-
-  // Widget _centerBottomBar() {
-  //   return FloatingActionButton(
-  //     onPressed: () {},
-  //     backgroundColor: const Color(0xFFE58F65),
-  //     child: IconButton(
-  //       onPressed: () {},
-  //       icon: Image.asset('assets/images/icons/fridgey.png'),
-  //       iconSize: 100,
-  //     ),
-  //   );
-  // }
-
-  Widget _headerMyRecipes() {
-    return Expanded(
-      flex: 2,
-      child: Container(
-        margin: const EdgeInsets.only(top: 20.0),
-        child: const Align(
-            alignment: Alignment.topLeft,
-            child: Text(
-              "Minhas receitas",
-              style: TextStyle(
-                color: blackTextColor,
-                fontSize: 35,
-                fontWeight: FontWeight.bold,
-              ),
-            )),
-      ),
-    );
-  }
-
   Widget _listCardRecipes() {
     final receitas = ReceitaRepositorie.listaReceitas;
 
     return Expanded(
       flex: 10,
       child: ListView.separated(
-        padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+        padding: const EdgeInsets.fromLTRB(7, 0, 7, 0),
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
         itemBuilder: (BuildContext contexto, int receita) {
@@ -107,25 +43,21 @@ class _MyRecipesState extends State<MyRecipes> {
             onTap: () => mostrarDetalhes(receitas[receita]),
             child: SizedBox(
               width: 300,
-              height: 150,
+              height: 295,
               child: Card(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30)),
                 child: Column(
                   children: [
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    ClipRRect(
-                      borderRadius: const BorderRadius.all(Radius.circular(30)),
-                      child: Image.asset(
-                        receitas[receita].foto,
-                        cacheWidth: 289,
-                        cacheHeight: 110,
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: ClipRRect(
+                        borderRadius: const BorderRadius.all(Radius.circular(25)),
+                        child: Image.asset(
+                          receitas[receita].foto,
+                          fit: BoxFit.contain,
+                        ),
                       ),
-                    ),
-                    const SizedBox(
-                      height: 5,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -135,12 +67,15 @@ class _MyRecipesState extends State<MyRecipes> {
                           textAlign: TextAlign.left,
                           style: const TextStyle(
                               color: blackTextColor,
-                              fontSize: 15,
+                              fontSize: 20,
                               fontWeight: FontWeight.bold),
                         ),
                         Text(
                           receitas[receita].data,
                           textAlign: TextAlign.right,
+                          style: const TextStyle(
+                            fontSize: 16,
+                          ),
                         )
                       ],
                     ),
@@ -157,35 +92,16 @@ class _MyRecipesState extends State<MyRecipes> {
   }
 
   Widget _addRecipesButtom() {
-    Size size = MediaQuery.of(context).size;
-    return Expanded(
-      flex: 2,
-      child: Container(
-        margin: const EdgeInsets.symmetric(vertical: 10),
-        height: size.height * 0.07,
-        width: size.width * 0.85,
-        child: ElevatedButton.icon(
-          icon: const Icon(
-            Icons.add_circle_outline_sharp,
-            color: Colors.white,
-          ),
-          style: ElevatedButton.styleFrom(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(29),
-            ),
-            backgroundColor: primaryColor,
-            textStyle: const TextStyle(
-              fontSize: 20,
-              color: loginAndRegisterColor,
-            ),
-          ),
-          onPressed: () => addNewRecipes(),
-          label: const Text(
-            "Adicionar nova receita",
-            style: TextStyle(color: loginAndRegisterColor),
-          ),
-        ),
-      ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        AddRecipeButton(
+          text: "Adicionar nova receita",
+           onPressed: () {
+             addNewRecipes();
+            }
+         ), 
+      ],
     );
   }
 
@@ -193,13 +109,39 @@ class _MyRecipesState extends State<MyRecipes> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: whiteBackgroundColor,
-      body: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Column(children: [
-          _headerMyRecipes(),
-          _addRecipesButtom(),
-          _listCardRecipes()
-        ]),
+      body: Stack(
+        children: [
+          Container(
+                padding: EdgeInsets.only(left: 50, top: 00),
+                  child: Blob.fromID(
+                    id: ['6-4-46477'],
+                    size: 300,
+                    styles:  BlobStyles(
+                      color:  Color.fromARGB(255, 255, 247, 209),
+                    ),
+                  ),
+                ),
+                Container(
+                padding: EdgeInsets.only(left: 0, top: 400),
+                  child: Blob.fromID(
+                    id: ['6-4-46477'],
+                    size: 300,
+                    styles:  BlobStyles(
+                      color:  Color.fromARGB(255, 255, 247, 209),
+                    ),
+                  ),
+                ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+            SizedBox(height: 40,),
+            text("Minhas receitas", 40),
+            SizedBox(height: 10,),
+            _addRecipesButtom(),
+            SizedBox(height: 15,),
+            _listCardRecipes()
+          ]),
+        ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: CenterBottomBar(

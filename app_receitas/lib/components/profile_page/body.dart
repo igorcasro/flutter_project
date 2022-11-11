@@ -1,11 +1,32 @@
+import 'package:app_receitas/pages/login_page.dart';
+import 'package:app_receitas/widgets/auth_check.dart';
 import 'package:flutter/material.dart';
-
+import 'package:provider/provider.dart';
 import '../../constants.dart';
+import '../../services/auth_service.dart';
 import 'profile_menu.dart';
 import 'profile_pic.dart';
 
-class Body extends StatelessWidget {
+class Body extends StatefulWidget {
   const Body({super.key});
+
+  @override
+  State<Body> createState() => _BodyState();
+}
+class _BodyState extends State<Body> {
+  logout() async {
+    try {
+      await context.read<AuthService>().logout();
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+        builder: ((context) => const LoginPage())
+        ),
+      );
+    } catch (e) {
+      print("ENTROU AUQI");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,23 +42,26 @@ class Body extends StatelessWidget {
           const SizedBox(height: 10),
           ProfileMenu(
             text: "Minha conta",
-            icon: Icon(Icons.person, color: Color.fromARGB(255, 255, 166, 93),),
+            icon: const Icon(Icons.person, color: Color.fromARGB(255, 255, 166, 93),),
             press: () => {},
           ),
           ProfileMenu(
             text: "Configurações",
-            icon: Icon(Icons.settings, color: Color.fromARGB(255, 255, 166, 93),),
+            icon: const Icon(Icons.settings, color: Color.fromARGB(255, 255, 166, 93),),
             press: () {},
           ),
           ProfileMenu(
             text: "Ajuda",
-            icon: Icon(Icons.help, color: Color.fromARGB(255, 255, 166, 93),),
+            icon: const Icon(Icons.help, color: Color.fromARGB(255, 255, 166, 93),),
             press: () {},
           ),
           ProfileMenu(
             text: "Sair da conta",
-            icon: Icon(Icons.logout, color: Color.fromARGB(255, 255, 166, 93),),
-            press: () {},
+            icon: const Icon(Icons.logout, color: Color.fromARGB(255, 255, 166, 93),),
+            press: () {
+              print(AuthService().usuario);
+              logout();
+            },
           ),
         ],
       ),

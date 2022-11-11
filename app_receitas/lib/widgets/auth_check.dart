@@ -20,10 +20,13 @@ class _AuthCheckState extends State<AuthCheck> {
     print(auth.usuario?.uid);
     
     if(auth.isLoading) {
+      print("AAAAA");
       return loading();
     } else if (auth.usuario == null){
+      print("BBBBB");
       return const LoginPage();
     } else {
+      print("CCCCC");
       return const HomePage();
     }
   }

@@ -9,6 +9,7 @@ import 'package:app_receitas/constants.dart';
 import 'package:app_receitas/pages/recover_password_page.dart';
 import 'package:app_receitas/pages/register_page.dart';
 import 'package:app_receitas/services/auth_service.dart';
+import 'package:blobs/blobs.dart';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -34,8 +35,6 @@ class _LoginPageState extends State<LoginPage> {
   late String titulo;
   late String actionButton;
   late String toggleButton;
-
-  
 
   @override
   void initState() {
@@ -85,102 +84,140 @@ class _LoginPageState extends State<LoginPage> {
       backgroundColor: loginAndRegisterColor,
       body: SingleChildScrollView(
         child: Column(children: [ !loading ? 
-          Column(
+          Stack(
             children: [
-              Image.asset(
-                './assets/images/logo_inicial.png',
-                width: double.infinity,
-              ),
-              Align(
-                alignment: const FractionalOffset(0.04, 0),
-                child: text('Login', 40),
-              ),
-              Form(
-                key: formKey,
-                child: TextFieldContainer(
-                  child: TextFormField(
-                    controller: email,
-                    autovalidateMode: AutovalidateMode.onUserInteraction,
-                    validator: (value) => validateEmail(value),
-                    decoration: const InputDecoration(
-                      icon: Icon(
-                        Icons.email_outlined,
-                        color: blackTextColor,
-                        size: 35,
-                      ),
-                      hintText: 'E-mail',
+              Container(
+                padding: EdgeInsets.only(left: 200),
+                  child: Blob.fromID(
+                    id: ['6-4-46477'],
+                    size: 300,
+                    styles:  BlobStyles(
+                      color:  Color.fromARGB(255, 255, 247, 209),
                     ),
                   ),
                 ),
-              ),
-              TextFieldContainer(
-                child: Column(children: [
-                  TextFormField(
-                    controller: senha,
-                    obscureText: !_passwordVisible,
-                    decoration: InputDecoration(
-                      hintText: "Senha",
-                      icon: const Icon(
-                        Icons.lock_outline,
-                        color: blackTextColor,
-                        size: 35,
-                      ),
-                      suffixIcon: (endSuffixIcon
-                          ? IconButton(
-                              icon: Icon(
-                                _passwordVisible
-                                    ? Icons.visibility_outlined
-                                    : Icons.visibility_off_outlined,
-                                color: blackTextColor,
-                              ),
-                              onPressed: () {
-                                // Update the state i.e. toogle the state of passwordVisible variable
-                                setState(() {
-                                  _passwordVisible = !_passwordVisible;
-                                });
-                              },
-                              color: blackTextColor,
-                            )
-                          : null),
+                Container(
+                padding: EdgeInsets.only(left: 300, top: 400),
+                  child: Blob.fromID(
+                    id: ['6-4-46477'],
+                    size: 200,
+                    styles:  BlobStyles(
+                      color:  Color.fromARGB(255, 255, 247, 209),
                     ),
                   ),
-                  ForgotYourPasswordCheck(
-                  press: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: ((context) => const RecoverPasswordPage()),
+                ),
+                Container(
+                padding: EdgeInsets.only(left: 0, top: 680),
+                  child: Blob.fromID(
+                    id: ['6-4-46477'],
+                    size: 300,
+                    styles:  BlobStyles(
+                      color:  Color.fromARGB(255, 255, 247, 209),
+                    ),
+                  ),
+                ),
+              Column(
+                children: [
+                  SizedBox(height: 60,),
+                  Image.asset(
+                    './assets/images/fridgey_capa3.png',
+                    width: 350,
+                  ),
+                  Align(
+                    alignment: const FractionalOffset(0.04, 0),
+                    child: text('Login', 40),
+                  ),
+                  Form(
+                    key: formKey,
+                    child: TextFieldContainer(
+                      child: TextFormField(
+                        controller: email,
+                        autovalidateMode: AutovalidateMode.onUserInteraction,
+                        validator: (value) => validateEmail(value),
+                        decoration: const InputDecoration(
+                          icon: Icon(
+                            Icons.email_outlined,
+                            color: blackTextColor,
+                            size: 35,
+                          ),
+                          hintText: 'E-mail',
+                        ),
                       ),
-                    );
-                  },
-                ),
-                SendButton(
-                  text: "Fazer login",
-                  onPressed: () {
-                    if(formKey.currentState!.validate()) {
-                      login();
-                    }
-                  },
-                ),
-                const SeparatorWidget(),
-                const SizedBox(height: 5),
-                GoogleButton(
-                  onPressed: () {},
-                ),
-                NewAroundHereCheck(
-                  press: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: ((context) => const RegisterPage()),
+                    ),
+                  ),
+                  TextFieldContainer(
+                    child: Column(children: [
+                      TextFormField(
+                        controller: senha,
+                        obscureText: !_passwordVisible,
+                        decoration: InputDecoration(
+                          hintText: "Senha",
+                          icon: const Icon(
+                            Icons.lock_outline,
+                            color: blackTextColor,
+                            size: 35,
+                          ),
+                          suffixIcon: (endSuffixIcon
+                              ? IconButton(
+                                  icon: Icon(
+                                    _passwordVisible
+                                        ? Icons.visibility_outlined
+                                        : Icons.visibility_off_outlined,
+                                    color: blackTextColor,
+                                  ),
+                                  onPressed: () {
+                                    // Update the state i.e. toogle the state of passwordVisible variable
+                                    setState(() {
+                                      _passwordVisible = !_passwordVisible;
+                                    });
+                                  },
+                                  color: blackTextColor,
+                                )
+                              : null),
+                        ),
                       ),
-                    );
-                  },
-                ),
-            ],
-          ) 
+                      SizedBox(height: 10,),
+                      ForgotYourPasswordCheck(
+                      press: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: ((context) => const RecoverPasswordPage()),
+                          ),
+                        );
+                      },
+                    ),
+                    SizedBox(height: 20,),
+                    SendButton(
+                      text: "Fazer login",
+                      onPressed: () {
+                        if(formKey.currentState!.validate()) {
+                          login();
+                        }
+                      },
+                    ),
+                    SizedBox(height: 5,),
+                    const SeparatorWidget(),
+                    const SizedBox(height: 5),
+                    GoogleButton(
+                      onPressed: () {},
+                    ),
+                    NewAroundHereCheck(
+                      press: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: ((context) => const RegisterPage()),
+                          ),
+                        );
+                      },
+                    ),
+                ],
+              ) 
         ),
-      ]) : Column(children: [
+      ]),
+            ],
+          ) : Column(children: [
         const Padding(
           padding: EdgeInsets.only(left: 90, top: 400),
           child: SizedBox(

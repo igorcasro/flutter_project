@@ -5,7 +5,7 @@ const loginAndRegisterColor = Color(0XFFFFFFFF);
 const whiteBackgroundColor = Color(0XFFF3F3F3);
 const blackTextColor = Color(0xFF474747);
 const searchBoxAndNotFoundColor = Color(0xFFCCD2E3);
-const linkColor = Color.fromARGB(255, 15, 15, 237);
+const linkColor = Color.fromARGB(255, 167, 167, 177);
 const emptyTextColor = Color.fromRGBO(189, 196, 214, 100);
 
 Widget text(text, double tamanho) {

@@ -1,8 +1,10 @@
 import 'package:app_receitas/models/receitas.dart';
 import 'package:app_receitas/pages/recipes_page.dart';
 import 'package:app_receitas/repositorie/receitasRepositorie.dart';
+import 'package:blobs/blobs.dart';
 import 'package:flutter/material.dart';
 
+import '../components/find_recipes_page/search_input.dart';
 import '../components/public/bottom_bar.dart';
 import '../components/public/center_bottom_bar.dart';
 
@@ -23,7 +25,7 @@ class _HomePageState extends State<HomePage> {
   Widget _text(text, double tamanho) {
     // ignore: non_constant_identifier_names
     return Container(
-      margin: const EdgeInsets.only(top: 10.0, left: 10.0),
+      margin: const EdgeInsets.only(top: 10.0, left: 20.0),
       child:
           // ignore: prefer_const_constructors
           Text(
@@ -44,7 +46,8 @@ class _HomePageState extends State<HomePage> {
     final receitas = ReceitaRepositorie.listaReceitas;
 
     return Container(
-        height: 127,
+        height: 200,
+        width: 250,
         margin: const EdgeInsets.only(top: 20.0, left: 15.0, right: 15.0),
         child: ListView.separated(
           scrollDirection: Axis.horizontal,
@@ -57,9 +60,10 @@ class _HomePageState extends State<HomePage> {
                   child: ClipRRect(
                     // ignore: sort_child_properties_last
                     child: Image.asset(
+                      fit: BoxFit.cover,
                       receitas[receita].foto,
-                      cacheWidth: 250,
-                      cacheHeight: 127,
+                      // cacheWidth: 250,
+                      // cacheHeight: 127,
                     ),
                     borderRadius: BorderRadius.circular(15),
                   ),
@@ -87,8 +91,7 @@ class _HomePageState extends State<HomePage> {
                   borderRadius: const BorderRadius.all(Radius.circular(15)),
                   child: Image.asset(
                     receitas[receita].foto,
-                    cacheHeight: 100,
-                    cacheWidth: 100,
+                    fit: BoxFit.cover,
                   ),
                 ),
                 title: Text(receitas[receita].nome),
@@ -114,13 +117,39 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xffF8F8F8),
-      body: ListView(
-        children: <Widget>[
-          _text("Início", 35.0),
-          _text("Receitas em Alta", 25.0),
-          _receitasEmAlta(),
-          _text("Últimas receitas feitas", 25.0),
-          _receitasRecentes(),
+      body: Stack(
+        children: [
+          Container(
+                padding: EdgeInsets.only(left: 250, top: 10),
+                  child: Blob.fromID(
+                    id: ['6-4-46477'],
+                    size: 400,
+                    styles:  BlobStyles(
+                      color:  Color.fromARGB(255, 255, 247, 209),
+                    ),
+                  ),
+                ),
+                Container(
+                padding: EdgeInsets.only(left: 0, top: 600),
+                  child: Blob.fromID(
+                    id: ['6-4-46477'],
+                    size: 400,
+                    styles:  BlobStyles(
+                      color:  Color.fromARGB(255, 255, 247, 209),
+                    ),
+                  ),
+                ),
+          ListView(
+            children: <Widget>[
+              SizedBox(height: 10,),
+              _text("Bem-vindo de volta!", 40.0),
+              SearchInput(),
+              _text("Receitas em Alta", 30.0),
+              _receitasEmAlta(),
+              _text("Últimas receitas feitas", 25.0),
+              _receitasRecentes(),
+            ],
+          ),
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
