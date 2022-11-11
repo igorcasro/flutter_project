@@ -2,7 +2,6 @@
 import 'package:app_receitas/pages/login_page.dart';
 import 'package:app_receitas/pages/my_account.dart';
 import 'package:app_receitas/pages/settings_page.dart';
-import 'package:app_receitas/widgets/auth_check.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../constants.dart';
@@ -22,10 +21,7 @@ class _BodyState extends State<Body> {
   logout() async {
     try {
       await context.read<AuthService>().logout();
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: ((context) => const LoginPage())),
-      );
+      Navigator.of(context).pop();
     } catch (e) {
       print("ENTROU AUQI");
     }
@@ -47,37 +43,45 @@ class _BodyState extends State<Body> {
           const SizedBox(height: 10),
           ProfileMenu(
             text: "Minha conta",
-            icon: const Icon(Icons.person, color: Color.fromARGB(255, 255, 166, 93),),
+            icon: const Icon(
+              Icons.person,
+              color: Color.fromARGB(255, 255, 166, 93),
+            ),
             press: () => {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                builder: ((context) => const MyAccountPage())
-                ),
+                    builder: ((context) => const MyAccountPage())),
               )
             },
           ),
           ProfileMenu(
             text: "Configurações",
-            icon: const Icon(Icons.settings, color: Color.fromARGB(255, 255, 166, 93),),
+            icon: const Icon(
+              Icons.settings,
+              color: Color.fromARGB(255, 255, 166, 93),
+            ),
             press: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                builder: ((context) => SettingsPage(title: '', key: null,))
-                ),
+                    builder: ((context) => const SettingsPage(
+                          title: '',
+                          key: null,
+                        ))),
               );
             },
           ),
           ProfileMenu(
             text: "Ajuda",
-            icon: const Icon(Icons.help, color: Color.fromARGB(255, 255, 166, 93),),
+            icon: const Icon(
+              Icons.help,
+              color: Color.fromARGB(255, 255, 166, 93),
+            ),
             press: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(
-                builder: ((context) => const HelpPage())
-                ),
+                MaterialPageRoute(builder: ((context) => const HelpPage())),
               );
             },
           ),

@@ -27,7 +27,7 @@ Widget text(text, double tamanho) {
   );
 }
 
-Widget config_text(text, double tamanho) {
+Widget configText(text, double tamanho) {
   return Container(
     margin: const EdgeInsets.only(
       top: 5,

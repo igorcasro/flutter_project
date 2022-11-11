@@ -119,6 +119,12 @@ class _RegisterPageState extends State<RegisterPage> {
             SendButton(
               onPressed: () {
                 registrar();
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text("Conta cadastrada com sucesso."),
+                  ),
+                );
+                Navigator.of(context).pop();
               },
               text: 'Realizar Cadastro',
             ),

@@ -1,14 +1,12 @@
-import 'package:app_receitas/components/my_account_page/TextWidget.dart';
+import 'package:app_receitas/components/my_account_page/text_widget.dart';
 import 'package:app_receitas/models/receitas.dart';
 import 'package:app_receitas/pages/recipes_page.dart';
 import 'package:blobs/blobs.dart';
 import 'package:flutter/material.dart';
 
-import '../components/find_recipes_page/search_input.dart';
 import '../components/profile_page/profile_pic.dart';
 import '../components/public/back_to_start_button.dart';
 import '../constants.dart';
-
 
 // ignore: use_key_in_widget_constructors
 class MyAccountPage extends StatefulWidget {
@@ -82,20 +80,40 @@ class _MyAccountPageState extends State<MyAccountPage> {
                 color:  const Color.fromARGB(255, 255, 187, 142),
                 ),
               ),
-            ),
+          ),
+          Container(
+            child: Blob.fromID(
+              id: const ['6-4-46477'],
+              size: 400,
+              styles: BlobStyles(
+                color: const Color.fromARGB(255, 255, 247, 209),
+              )
+            )
+          ),
           Container(
             padding: const EdgeInsets.only(left: 0, top: 500),
               child: Blob.fromID(
                 id: ['6-4-46477'],
-                  size: 400,
-                  styles:  BlobStyles(
+                size: 400,
+                styles:  BlobStyles(
                   color:  const Color.fromARGB(255, 255, 187, 142),
-                ),
+                )
+              ),
+          ),
+          Container(
+            child: Blob.fromID(
+              id: const ['6-4-46477'],
+              size: 400,
+              styles: BlobStyles(
+                color: const Color.fromARGB(255, 255, 247, 209),
               ),
             ),
+          ),
           ListView(
             children: <Widget>[
-              const SizedBox(height: 10,),
+              const SizedBox(
+                height: 10,
+              ),
               text("Minha conta", 40.0),
               const SizedBox(height: 10,),
               SizedBox(
@@ -111,14 +129,11 @@ class _MyAccountPageState extends State<MyAccountPage> {
                   child: BackToStartButton(
                     onPressed: () {
                       Navigator.pop(context);
-                    },
-                  ),
-                ),
-            ],
-          ),
-        ],
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-    );
+                    }
+                  )
+                )
+          ])
+        ])
+      );
   }
 }
