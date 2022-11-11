@@ -27,6 +27,24 @@ Widget text(text, double tamanho) {
   );
 }
 
+Widget config_text(text, double tamanho) {
+  return Container(
+    margin: const EdgeInsets.only(
+      top: 5,
+      left: 0,
+    ),
+    child: Text(
+      text,
+      textAlign: TextAlign.left,
+      style: TextStyle(
+        fontSize: tamanho,
+        fontWeight: FontWeight.bold,
+        color: blackTextColor,
+      ),
+    ),
+  );
+}
+
 Widget centeredText(text, double tamanho) {
   return Container(
     margin: const EdgeInsets.only(

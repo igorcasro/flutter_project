@@ -14,6 +14,8 @@ import 'package:blobs/blobs.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'home_page.dart';
+
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -58,19 +60,13 @@ class _LoginPageState extends State<LoginPage> {
     });
   }
 
-  login() async {
-    setState(() {
-      loading = true;
-    });
+    login() async {
+    setState(() => loading = true);
     try {
-      await context.read<AuthService>().login(
-            email.text,
-            senha.text,
-          );
+      await context.read<AuthService>().login(email.text, senha.text);
+      setState(() => loading = false);
     } on AuthException catch (e) {
-      setState(() {
-        loading = false;
-      });
+      setState(() => loading = false);
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text(e.message)));
     }
@@ -178,6 +174,35 @@ class _LoginPageState extends State<LoginPage> {
                                   : null),
                             ),
                           ),
+                        );
+                      },
+                    ),
+                    SizedBox(height: 20,),
+                    SendButton(
+                      text: "Fazer login",
+                      onPressed: () {
+                        if(formKey.currentState!.validate()) {
+                          login();
+                          Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: ((context) => HomePage())),
+                          );
+                        }
+                      },
+                    ),
+                    SizedBox(height: 5,),
+                    const SeparatorWidget(),
+                    const SizedBox(height: 5),
+                    GoogleButton(
+                      onPressed: () {},
+                    ),
+                    NewAroundHereCheck(
+                      press: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: ((context) => const RegisterPage()),
                           const SizedBox(
                             height: 10,
                           ),

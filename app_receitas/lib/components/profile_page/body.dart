@@ -1,9 +1,12 @@
 // ignore_for_file: use_build_context_synchronously, avoid_print
-
 import 'package:app_receitas/pages/login_page.dart';
+import 'package:app_receitas/pages/my_account.dart';
+import 'package:app_receitas/pages/settings_page.dart';
+import 'package:app_receitas/widgets/auth_check.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../constants.dart';
+import '../../pages/help_page.dart';
 import '../../services/auth_service.dart';
 import 'profile_menu.dart';
 import 'profile_pic.dart';
@@ -44,27 +47,39 @@ class _BodyState extends State<Body> {
           const SizedBox(height: 10),
           ProfileMenu(
             text: "Minha conta",
-            icon: const Icon(
-              Icons.person,
-              color: Color.fromARGB(255, 255, 166, 93),
-            ),
-            press: () => {},
+            icon: const Icon(Icons.person, color: Color.fromARGB(255, 255, 166, 93),),
+            press: () => {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                builder: ((context) => const MyAccountPage())
+                ),
+              )
+            },
           ),
           ProfileMenu(
             text: "Configurações",
-            icon: const Icon(
-              Icons.settings,
-              color: Color.fromARGB(255, 255, 166, 93),
-            ),
-            press: () {},
+            icon: const Icon(Icons.settings, color: Color.fromARGB(255, 255, 166, 93),),
+            press: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                builder: ((context) => SettingsPage(title: '', key: null,))
+                ),
+              );
+            },
           ),
           ProfileMenu(
             text: "Ajuda",
-            icon: const Icon(
-              Icons.help,
-              color: Color.fromARGB(255, 255, 166, 93),
-            ),
-            press: () {},
+            icon: const Icon(Icons.help, color: Color.fromARGB(255, 255, 166, 93),),
+            press: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                builder: ((context) => const HelpPage())
+                ),
+              );
+            },
           ),
           ProfileMenu(
             text: "Sair da conta",
