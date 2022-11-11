@@ -14,7 +14,7 @@ class ForgotYourPasswordCheck extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.end,
       children: <Widget>[
         Padding(
-          padding: const EdgeInsets.only(right: 0),
+          padding: const EdgeInsets.only(right: 30),
           child: GestureDetector(
             onTap: press,
             child: const Text(

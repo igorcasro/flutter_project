@@ -41,7 +41,7 @@ class _MyRecipesState extends State<MyRecipes> {
             onTap: () => mostrarDetalhes(receitas[receita]),
             child: SizedBox(
               width: 300,
-              height: 295,
+              height: 305,
               child: Card(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30)),
