@@ -45,7 +45,7 @@ Widget config_text(text, double tamanho) {
   );
 }
 
-Widget centered_text(text, double tamanho) {
+Widget centeredText(text, double tamanho) {
   return Container(
     margin: const EdgeInsets.only(
       left: 0,
@@ -62,18 +62,16 @@ Widget centered_text(text, double tamanho) {
   );
 }
 
-Widget description_text(text, double tamanho) {
-  return Container(
-    child: SizedBox(
-      width: 280,
-      child: Text(
-        text,
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          fontSize: tamanho,
-          fontWeight: FontWeight.normal,
-          color: blackTextColor,
-        ),
+Widget descriptionText(text, double tamanho) {
+  return SizedBox(
+    width: 280,
+    child: Text(
+      text,
+      textAlign: TextAlign.center,
+      style: TextStyle(
+        fontSize: tamanho,
+        fontWeight: FontWeight.normal,
+        color: blackTextColor,
       ),
     ),
   );

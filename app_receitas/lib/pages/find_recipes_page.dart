@@ -18,25 +18,25 @@ class FindRecipesPage extends StatelessWidget {
       body: Stack(
         children: [
           Container(
-                padding: EdgeInsets.only(left: 260, top: 0),
-                  child: Blob.fromID(
-                    id: ['6-4-46477'],
-                    size: 200,
-                    styles:  BlobStyles(
-                      color:  Color.fromARGB(255, 255, 247, 209),
-                    ),
-                  ),
-                ),
-                Container(
-                padding: EdgeInsets.only(left: 0, top: 500),
-                  child: Blob.fromID(
-                    id: ['6-4-46477'],
-                    size: 400,
-                    styles:  BlobStyles(
-                      color:  Color.fromARGB(255, 255, 247, 209),
-                    ),
-                  ),
-                ),
+            padding: const EdgeInsets.only(left: 260, top: 0),
+            child: Blob.fromID(
+              id: const ['6-4-46477'],
+              size: 200,
+              styles: BlobStyles(
+                color: const Color.fromARGB(255, 255, 247, 209),
+              ),
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.only(left: 0, top: 500),
+            child: Blob.fromID(
+              id: const ['6-4-46477'],
+              size: 400,
+              styles: BlobStyles(
+                color: const Color.fromARGB(255, 255, 247, 209),
+              ),
+            ),
+          ),
           SingleChildScrollView(
               child: x
                   ? Column(

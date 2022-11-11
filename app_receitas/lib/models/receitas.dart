@@ -1,5 +1,5 @@
-import 'package:app_receitas/models/ingredienteReceita.dart';
-import 'package:app_receitas/models/modoPreparoReceita.dart';
+import 'package:app_receitas/models/ingrediente_receita.dart';
+import 'package:app_receitas/models/modo_preparo_receita.dart';
 
 class Receita{
   String nome;

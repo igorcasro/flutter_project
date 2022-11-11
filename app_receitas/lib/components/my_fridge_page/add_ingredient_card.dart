@@ -1,5 +1,5 @@
 import 'package:app_receitas/components/my_fridge_page/modify_ingredient_amount.dart';
-import 'package:app_receitas/models/ingredientsPhotos.dart';
+import 'package:app_receitas/models/ingredients_photos.dart';
 import 'package:flutter/material.dart';
 import '../../constants.dart';
 
