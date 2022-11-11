@@ -129,7 +129,7 @@ class _FirstPageState extends State<FirstPage> {
                   ),
                 ),
                 Container(
-                padding: EdgeInsets.only(left: 0, top: 600),
+                padding: EdgeInsets.only(left: 0, top: 500),
                   child: Blob.fromID(
                     id: ['6-4-46477'],
                     size: 400,

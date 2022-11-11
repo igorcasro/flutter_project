@@ -3,6 +3,7 @@ import 'package:app_receitas/widgets/auth_check.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../constants.dart';
+import '../../pages/help_page.dart';
 import '../../services/auth_service.dart';
 import 'profile_menu.dart';
 import 'profile_pic.dart';
@@ -53,7 +54,14 @@ class _BodyState extends State<Body> {
           ProfileMenu(
             text: "Ajuda",
             icon: const Icon(Icons.help, color: Color.fromARGB(255, 255, 166, 93),),
-            press: () {},
+            press: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                builder: ((context) => const HelpPage())
+                ),
+              );
+            },
           ),
           ProfileMenu(
             text: "Sair da conta",

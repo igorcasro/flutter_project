@@ -28,7 +28,7 @@ class _AuthCheckState extends State<AuthCheck> {
       return const LoginPage();
     } else {
       print("CCCCC");
-      return const HomePage();
+      return HomePage();
     }
   }
 }
