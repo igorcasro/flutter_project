@@ -1,4 +1,5 @@
 import 'package:app_receitas/pages/login_page.dart';
+import 'package:app_receitas/pages/settings_page.dart';
 import 'package:app_receitas/widgets/auth_check.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -49,7 +50,14 @@ class _BodyState extends State<Body> {
           ProfileMenu(
             text: "Configurações",
             icon: const Icon(Icons.settings, color: Color.fromARGB(255, 255, 166, 93),),
-            press: () {},
+            press: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                builder: ((context) => SettingsPage(title: '', key: null,))
+                ),
+              );
+            },
           ),
           ProfileMenu(
             text: "Ajuda",
