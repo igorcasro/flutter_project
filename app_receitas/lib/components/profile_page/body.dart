@@ -1,4 +1,5 @@
 import 'package:app_receitas/pages/login_page.dart';
+import 'package:app_receitas/pages/my_account.dart';
 import 'package:app_receitas/pages/settings_page.dart';
 import 'package:app_receitas/widgets/auth_check.dart';
 import 'package:flutter/material.dart';
@@ -45,7 +46,14 @@ class _BodyState extends State<Body> {
           ProfileMenu(
             text: "Minha conta",
             icon: const Icon(Icons.person, color: Color.fromARGB(255, 255, 166, 93),),
-            press: () => {},
+            press: () => {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                builder: ((context) => const MyAccountPage())
+                ),
+              )
+            },
           ),
           ProfileMenu(
             text: "Configurações",
