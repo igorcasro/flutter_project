@@ -83,6 +83,7 @@ class DB {
       person_id TEXT,  
     );
   ''';
+
   String get _ingredientsGelator => '''
     CREATE TABLE ingredients_gelator(
       gelator_id INTEGER PRIMARY KEY,

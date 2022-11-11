@@ -21,10 +21,7 @@ class _BodyState extends State<Body> {
   logout() async {
     try {
       await context.read<AuthService>().logout();
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: ((context) => const LoginPage())),
-      );
+      Navigator.of(context).pop();
     } catch (e) {
       print("ENTROU AUQI");
     }
