@@ -6,7 +6,7 @@ import 'package:app_receitas/components/login_page/new_around_here_check.dart';
 import 'package:app_receitas/components/public/separator_widget.dart';
 import 'package:app_receitas/components/public/text_field_container.dart';
 import 'package:app_receitas/constants.dart';
-import 'package:app_receitas/pages/first_page.dart';
+import 'package:app_receitas/pages/home_page.dart';
 import 'package:app_receitas/pages/recover_password_page.dart';
 import 'package:app_receitas/pages/register_page.dart';
 
@@ -123,7 +123,7 @@ class _LoginPageState extends State<LoginPage> {
               onPressed: () {
                 (email == "igorpfcastro@gmail.com" && senha == "123456")
                     ? Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: ((context) => const FirstPage()),
+                        builder: ((context) => const HomePage()),
                       ))
                     : showDialog<void>(
                         context: context,
