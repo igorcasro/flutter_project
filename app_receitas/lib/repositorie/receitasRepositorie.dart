@@ -14,7 +14,7 @@ class ReceitaRepositorie{
         '3. Leve ao forno preaquecido e deixe assar, por cerca de 40 minutos.']), 
       tempoDePreparo: "1 hora", 
       foto:'assets/images/receitas/bolo.jpg',
-      data:"20/02/2022",
+      data:"Feito em 20/02/2022",
       ingredientes: [
         IngredienteReceita(ingrediente: Ingrediente(nome: "ovo"), quantidade: 3, uMedida: "unidades"),
         IngredienteReceita(ingrediente: Ingrediente(nome: "açúcar"), quantidade: 2, uMedida: "xícaras de chá"),
@@ -34,7 +34,7 @@ class ReceitaRepositorie{
       ]), 
       tempoDePreparo:"2 horas",
       foto:'assets/images/receitas/feijoada.jpg',
-      data:"05/01/2020",
+      data:"Feito em 05/01/2020",
       ingredientes: [
         IngredienteReceita(ingrediente: Ingrediente(nome: "carne de porco"), quantidade: 2, uMedida: "quilos"),
         IngredienteReceita(ingrediente: Ingrediente(nome: "feijão"), quantidade: 1, uMedida: "quilo"),
@@ -53,7 +53,7 @@ class ReceitaRepositorie{
         '5. Sirva com o macarrão cozido (conforme as instruções da embalagem), finalize com queijo ralado.']), 
       tempoDePreparo: "1 hora", 
       foto:'assets/images/receitas/macarronada.jpg',
-      data:"06/06/2022",
+      data:"Feito em 06/06/2022",
       ingredientes: [
         IngredienteReceita(ingrediente: Ingrediente(nome: "espaguete"), quantidade: 1, uMedida: "pacote"),
         IngredienteReceita(ingrediente: Ingrediente(nome: "cane moída"), quantidade: 500, uMedida: "gramas"),
@@ -82,7 +82,7 @@ class ReceitaRepositorie{
         ]), 
       tempoDePreparo:"30 minutos", 
       foto:'assets/images/receitas/pastel.jpg',
-      data:"03/04/2021",
+      data:"Feito em 03/04/2021",
       ingredientes: [
         IngredienteReceita(ingrediente: Ingrediente(nome: "farinha de trigo"), quantidade: 500, uMedida: "gramas"),
         IngredienteReceita(ingrediente: Ingrediente(nome: "óleo"), quantidade: 1, uMedida: "litro"),
@@ -105,7 +105,7 @@ class ReceitaRepositorie{
         ]),
       tempoDePreparo:"2 horas",
       foto:'assets/images/receitas/pizza.jpg',
-      data:"02/12/2019",
+      data:"Feito em 02/12/2019",
       ingredientes: [
         IngredienteReceita(ingrediente: Ingrediente(nome: "massa pronta"), quantidade: 1, uMedida: "unidade"),
         IngredienteReceita(ingrediente: Ingrediente(nome: "massa de tomate"), quantidade: 85, uMedida: "gramas"),
@@ -120,7 +120,7 @@ class ReceitaRepositorie{
       '3. Monte a salada']), 
       tempoDePreparo:"2 horas",
       foto:'assets/images/receitas/pratofeito.jpg',
-      data:"02/11/2018",
+      data:"Feito em 02/11/2018",
       ingredientes: [
       IngredienteReceita(ingrediente: Ingrediente(nome: "azeitona"), quantidade: 100, uMedida: "gramas"),
       IngredienteReceita(ingrediente: Ingrediente(nome: "arroz"), quantidade: 100, uMedida: "gramas"),
@@ -138,7 +138,7 @@ class ReceitaRepositorie{
         '5. Desligue e sirva.']), 
       tempoDePreparo: "40 minutos",
       foto:'assets/images/receitas/pure.jpg',
-      data:"02/12/2017",
+      data:"Feito em 02/12/2017",
       ingredientes: [
         IngredienteReceita(ingrediente: Ingrediente(nome: "batatas"), quantidade: 1, uMedida: "quilo"),
         IngredienteReceita(ingrediente: Ingrediente(nome: "manteiga"), quantidade: 3, uMedida: "colheres"),
@@ -153,7 +153,7 @@ class ReceitaRepositorie{
         '3 - Junte-os e tempere à gosto']), 
       tempoDePreparo:"15 minutos", 
       foto:'assets/images/receitas/salada.jpg',
-      data:"05/08/2022",
+      data:"Feito em 05/08/2022",
       ingredientes: [
         IngredienteReceita(ingrediente: Ingrediente(nome: "folhas"), quantidade: 100, uMedida: "gramas"),
         IngredienteReceita(ingrediente: Ingrediente(nome: "tomate"), quantidade: 1, uMedida: "unidade"),
