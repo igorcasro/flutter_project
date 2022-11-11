@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_typing_uninitialized_variables
+
 import 'package:flutter/material.dart';
 
 class ProfileMenu extends StatelessWidget {
@@ -19,11 +21,11 @@ class ProfileMenu extends StatelessWidget {
       child: TextButton(
         style: TextButton.styleFrom(
           elevation: 1,
-          foregroundColor: Color.fromARGB(255, 70, 70, 70),
+          foregroundColor: const Color.fromARGB(255, 70, 70, 70),
           padding: const EdgeInsets.all(20),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-          backgroundColor: Color.fromARGB(255, 243, 243, 243),
+          backgroundColor: const Color.fromARGB(255, 243, 243, 243),
         ),
         onPressed: press,
         child: Row(

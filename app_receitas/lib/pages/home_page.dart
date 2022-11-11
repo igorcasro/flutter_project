@@ -1,5 +1,5 @@
 import 'package:app_receitas/constants.dart';
-import 'package:app_receitas/pages/find_recipes.dart';
+import 'package:app_receitas/pages/find_recipes_page.dart';
 import 'package:app_receitas/pages/first_page.dart';
 import 'package:app_receitas/pages/my_fridge.dart';
 import 'package:app_receitas/pages/my_recipes.dart';

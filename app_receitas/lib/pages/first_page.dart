@@ -1,11 +1,10 @@
 import 'package:app_receitas/models/receitas.dart';
 import 'package:app_receitas/pages/recipes_page.dart';
-import 'package:app_receitas/repositorie/receitasRepositorie.dart';
+import 'package:app_receitas/repositorie/receitas_repositorie.dart';
 import 'package:blobs/blobs.dart';
 import 'package:flutter/material.dart';
 
 import '../components/find_recipes_page/search_input.dart';
-
 
 // ignore: use_key_in_widget_constructors
 class FirstPage extends StatefulWidget {
@@ -119,30 +118,32 @@ class _FirstPageState extends State<FirstPage> {
       body: Stack(
         children: [
           Container(
-                padding: EdgeInsets.only(left: 250, top: 10),
-                  child: Blob.fromID(
-                    id: ['6-4-46477'],
-                    size: 400,
-                    styles:  BlobStyles(
-                      color:  Color.fromARGB(255, 255, 247, 209),
-                    ),
-                  ),
-                ),
-                Container(
-                padding: EdgeInsets.only(left: 0, top: 600),
-                  child: Blob.fromID(
-                    id: ['6-4-46477'],
-                    size: 400,
-                    styles:  BlobStyles(
-                      color:  Color.fromARGB(255, 255, 247, 209),
-                    ),
-                  ),
-                ),
+            padding: const EdgeInsets.only(left: 250, top: 10),
+            child: Blob.fromID(
+              id: const ['6-4-46477'],
+              size: 400,
+              styles: BlobStyles(
+                color: const Color.fromARGB(255, 255, 247, 209),
+              ),
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.only(left: 0, top: 600),
+            child: Blob.fromID(
+              id: const ['6-4-46477'],
+              size: 400,
+              styles: BlobStyles(
+                color: const Color.fromARGB(255, 255, 247, 209),
+              ),
+            ),
+          ),
           ListView(
             children: <Widget>[
-              SizedBox(height: 10,),
+              const SizedBox(
+                height: 10,
+              ),
               _text("Bem-vindo de volta!", 40.0),
-              SearchInput(),
+              const SearchInput(),
               _text("Receitas em Alta", 30.0),
               _receitasEmAlta(),
               _text("Últimas receitas feitas", 25.0),

@@ -1,6 +1,6 @@
 // ignore_for_file: file_names
 import 'package:app_receitas/models/ingredientes.dart';
-import '../models/ingredientsPhotos.dart';
+import '../models/ingredients_photos.dart';
 
 class IngredientRepository{
   static List<IngredientePhotos> ingredientsPhotosList = [

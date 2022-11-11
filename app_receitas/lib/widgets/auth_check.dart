@@ -1,4 +1,5 @@
-import 'package:app_receitas/pages/first_page.dart';
+// ignore_for_file: avoid_print
+
 import 'package:app_receitas/services/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -19,11 +20,11 @@ class _AuthCheckState extends State<AuthCheck> {
     AuthService auth = Provider.of<AuthService>(context);
     print("user: ");
     print(auth.usuario?.uid);
-    
-    if(auth.isLoading) {
+
+    if (auth.isLoading) {
       print("AAAAA");
       return loading();
-    } else if (auth.usuario == null){
+    } else if (auth.usuario == null) {
       print("BBBBB");
       return const LoginPage();
     } else {

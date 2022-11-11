@@ -1,8 +1,8 @@
 // ignore_for_file: file_names
 
-import 'package:app_receitas/models/ingredienteReceita.dart';
+import 'package:app_receitas/models/ingrediente_receita.dart';
 import 'package:app_receitas/models/ingredientes.dart';
-import 'package:app_receitas/models/modoPreparoReceita.dart';
+import 'package:app_receitas/models/modo_preparo_receita.dart';
 import 'package:app_receitas/models/receitas.dart';
 
 class ReceitaRepositorie{

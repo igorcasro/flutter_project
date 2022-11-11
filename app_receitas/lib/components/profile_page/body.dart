@@ -1,5 +1,6 @@
+// ignore_for_file: use_build_context_synchronously, avoid_print
+
 import 'package:app_receitas/pages/login_page.dart';
-import 'package:app_receitas/widgets/auth_check.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../constants.dart';
@@ -13,15 +14,14 @@ class Body extends StatefulWidget {
   @override
   State<Body> createState() => _BodyState();
 }
+
 class _BodyState extends State<Body> {
   logout() async {
     try {
       await context.read<AuthService>().logout();
       Navigator.push(
         context,
-        MaterialPageRoute(
-        builder: ((context) => const LoginPage())
-        ),
+        MaterialPageRoute(builder: ((context) => const LoginPage())),
       );
     } catch (e) {
       print("ENTROU AUQI");
@@ -36,28 +36,42 @@ class _BodyState extends State<Body> {
         children: [
           const ProfilePic(),
           const SizedBox(height: 20),
-          centered_text("Amanda", 30),
+          centeredText("Amanda", 30),
           const SizedBox(height: 10),
-          description_text("Olá! Meu nome é Amanda e eu tenho 21 anos. Nasci e cresci em Las Vegas (apesar de alguns discordarem e dizerem que Juquiá não é Las Vegas).", 15),
+          descriptionText(
+              "Olá! Meu nome é Amanda e eu tenho 21 anos. Nasci e cresci em Las Vegas (apesar de alguns discordarem e dizerem que Juquiá não é Las Vegas).",
+              15),
           const SizedBox(height: 10),
           ProfileMenu(
             text: "Minha conta",
-            icon: const Icon(Icons.person, color: Color.fromARGB(255, 255, 166, 93),),
+            icon: const Icon(
+              Icons.person,
+              color: Color.fromARGB(255, 255, 166, 93),
+            ),
             press: () => {},
           ),
           ProfileMenu(
             text: "Configurações",
-            icon: const Icon(Icons.settings, color: Color.fromARGB(255, 255, 166, 93),),
+            icon: const Icon(
+              Icons.settings,
+              color: Color.fromARGB(255, 255, 166, 93),
+            ),
             press: () {},
           ),
           ProfileMenu(
             text: "Ajuda",
-            icon: const Icon(Icons.help, color: Color.fromARGB(255, 255, 166, 93),),
+            icon: const Icon(
+              Icons.help,
+              color: Color.fromARGB(255, 255, 166, 93),
+            ),
             press: () {},
           ),
           ProfileMenu(
             text: "Sair da conta",
-            icon: const Icon(Icons.logout, color: Color.fromARGB(255, 255, 166, 93),),
+            icon: const Icon(
+              Icons.logout,
+              color: Color.fromARGB(255, 255, 166, 93),
+            ),
             press: () {
               print(AuthService().usuario);
               logout();
