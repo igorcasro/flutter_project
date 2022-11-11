@@ -1,7 +1,5 @@
 // ignore_for_file: dead_code
 
-import 'package:app_receitas/components/public/bottom_bar.dart';
-import 'package:app_receitas/components/public/center_bottom_bar.dart';
 import 'package:app_receitas/components/find_recipes_page/possible_recipes_listview.dart';
 import 'package:app_receitas/components/find_recipes_page/search_input.dart';
 import 'package:app_receitas/constants.dart';

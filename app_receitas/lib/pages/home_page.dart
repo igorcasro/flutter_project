@@ -17,10 +17,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  mostrarDetalhes(Receita receita) {
-    Navigator.push(context,
-        MaterialPageRoute(builder: (_) => ReceitasPage(receita: receita)));
-  }
+  int paginaAtual = 0;
+  late PageController pageController;
 
   Widget _text(text, double tamanho) {
     // ignore: non_constant_identifier_names
@@ -152,12 +150,60 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: CenterBottomBar(
-        press: () {},
-      ),
-      bottomNavigationBar: BottomBar(
-        press: () {},
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        landscapeLayout: BottomNavigationBarLandscapeLayout.centered,
+        selectedItemColor: primaryColor,
+        unselectedItemColor: bottomBarItensColor,
+        currentIndex: paginaAtual,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        items: [
+          const BottomNavigationBarItem(
+            icon: Icon(
+              Icons.home_sharp,
+            ),
+            label: '',
+          ),
+          const BottomNavigationBarItem(
+            icon: Icon(
+              Icons.search_sharp,
+            ),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: CircleAvatar(
+              backgroundColor: primaryColor,
+              maxRadius: 28,
+              minRadius: 18,
+              child: Image.asset(
+                'assets/images/icons/fridgey.png',
+                height: 35,
+              ),
+            ),
+            label: '',
+          ),
+          const BottomNavigationBarItem(
+            icon: Icon(
+              Icons.view_timeline_rounded,
+            ),
+            label: '',
+          ),
+          const BottomNavigationBarItem(
+            icon: Icon(
+              Icons.person,
+            ),
+            label: '',
+          ),
+        ],
+        onTap: (pagina) {
+          pageController.animateToPage(
+            pagina,
+            duration: const Duration(milliseconds: 400),
+            curve: Curves.ease,
+          );
+        },
+        iconSize: 30,
       ),
     );
   }

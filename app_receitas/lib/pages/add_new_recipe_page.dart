@@ -3,8 +3,6 @@ import 'dart:io';
 import 'package:app_receitas/components/add_new_recipe_page/back_button.dart';
 import 'package:app_receitas/components/add_new_recipe_page/date_text_field.dart';
 import 'package:app_receitas/components/add_new_recipe_page/recipe_name_text_field.dart';
-import 'package:app_receitas/components/public/bottom_bar.dart';
-import 'package:app_receitas/components/public/center_bottom_bar.dart';
 import 'package:app_receitas/components/public/send_button.dart';
 import 'package:app_receitas/constants.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +33,6 @@ class _AddNewRecipePageState extends State<AddNewRecipePage> {
 
   @override
   Widget build(BuildContext context) {
-    bool keyboardIsOpen = MediaQuery.of(context).viewInsets.bottom != 0;
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: whiteBackgroundColor,
@@ -129,17 +126,6 @@ class _AddNewRecipePageState extends State<AddNewRecipePage> {
             ),
           ],
         ),
-      ),
-      extendBody: true,
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: Visibility(
-        visible: !keyboardIsOpen,
-        child: CenterBottomBar(
-          press: () {},
-        ),
-      ),
-      bottomNavigationBar: BottomBar(
-        press: () {},
       ),
     );
   }

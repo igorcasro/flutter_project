@@ -22,7 +22,6 @@ void main() async {
     )
   );
 }
-
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -40,10 +39,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-
-//void main() {
-//  debugInvertOversizedImages = false;
-//  runApp(const MeuAplicativo());
-
-//}

@@ -7,6 +7,7 @@ const blackTextColor = Color(0xFF474747);
 const searchBoxAndNotFoundColor = Color(0xFFCCD2E3);
 const linkColor = Color.fromARGB(255, 167, 167, 177);
 const emptyTextColor = Color.fromRGBO(189, 196, 214, 100);
+const bottomBarItensColor = Color.fromARGB(255, 203, 199, 199);
 
 Widget text(text, double tamanho) {
   return Container(
