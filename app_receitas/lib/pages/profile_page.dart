@@ -1,8 +1,6 @@
-import 'package:app_receitas/components/public/bottom_bar.dart';
 import 'package:blobs/blobs.dart';
 import 'package:flutter/material.dart';
 import '../components/profile_page/body.dart';
-import '../components/public/center_bottom_bar.dart';
 import '../constants.dart';
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -61,10 +59,6 @@ class ProfilePage extends StatelessWidget {
           ),
         ]),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: CenterBottomBar(
-        press: () {},
-      ),
-      bottomNavigationBar: BottomBar(press: () {  },),
     );
   }
 }

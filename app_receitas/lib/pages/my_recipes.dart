@@ -5,10 +5,7 @@ import 'package:app_receitas/repositorie/receitasRepositorie.dart';
 import 'package:blobs/blobs.dart';
 import 'package:flutter/material.dart';
 import 'package:app_receitas/constants.dart';
-
 import '../components/public/add_recipe_button.dart';
-import '../components/public/bottom_bar.dart';
-import '../components/public/center_bottom_bar.dart';
 import '../components/public/send_button.dart';
 
 class MyRecipes extends StatefulWidget {
@@ -144,12 +141,6 @@ class _MyRecipesState extends State<MyRecipes> {
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: CenterBottomBar(
-        press: () {},
-      ),
-      bottomNavigationBar: BottomBar(
-        press: () {},
-      ),
     );
   }
 }
