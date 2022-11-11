@@ -1,9 +1,6 @@
 import 'package:app_receitas/models/receitas.dart';
 import 'package:flutter/material.dart';
 
-import '../components/public/bottom_bar.dart';
-import '../components/public/center_bottom_bar.dart';
-
 // ignore: must_be_immutable
 class ReceitasPage extends StatefulWidget {
   Receita receita;
@@ -15,7 +12,6 @@ class ReceitasPage extends StatefulWidget {
 }
 
 class _ReceitasPageState extends State<ReceitasPage> {
-
   Widget _backButton() {
     return IconButton(
       icon: const Icon(Icons.arrow_back_ios_new_rounded,
@@ -104,40 +100,41 @@ class _ReceitasPageState extends State<ReceitasPage> {
           ],
         ));
   }
-  Widget _modoDePreparo(){
+
+  Widget _modoDePreparo() {
     return Container(
       margin: const EdgeInsets.only(left: 15.0, right: 25),
       child: Column(
         children: [
           const Align(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  "Modo de preparo",
-                  style: TextStyle(
-                    color: Color(0xffE58F65),
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold,
-                  ),
-                )),
-            Column(
-              children: List.generate(
-                  widget.receita.modoDePreparo.passosPreparo.length, (index) {
-                return Column(
-                  children: [
-                    Align(
-                      alignment: Alignment.topLeft,
-                      child: Text(
-                        widget.receita.modoDePreparo.passosPreparo[index],
-                        textAlign: TextAlign.justify,
-                        style: const TextStyle(
-                          fontSize: 20,
-                        ),
+              alignment: Alignment.topLeft,
+              child: Text(
+                "Modo de preparo",
+                style: TextStyle(
+                  color: Color(0xffE58F65),
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                ),
+              )),
+          Column(
+            children: List.generate(
+                widget.receita.modoDePreparo.passosPreparo.length, (index) {
+              return Column(
+                children: [
+                  Align(
+                    alignment: Alignment.topLeft,
+                    child: Text(
+                      widget.receita.modoDePreparo.passosPreparo[index],
+                      textAlign: TextAlign.justify,
+                      style: const TextStyle(
+                        fontSize: 20,
                       ),
-                    )
-                  ],
-                );
-              }),
-            )
+                    ),
+                  )
+                ],
+              );
+            }),
+          )
         ],
       ),
     );
@@ -153,13 +150,14 @@ class _ReceitasPageState extends State<ReceitasPage> {
         elevation: 0,
       ),
       body: Container(
-          margin: const EdgeInsets.only(top: 10.0, left: 10.0),
-          child: ListView(shrinkWrap: true, children: [
+        margin: const EdgeInsets.only(top: 10.0, left: 10.0),
+        child: ListView(
+          shrinkWrap: true,
+          children: [
             Text(
               widget.receita.nome,
               textAlign: TextAlign.left,
               style: const TextStyle(
-
                 fontSize: 35,
                 fontWeight: FontWeight.bold,
                 color: Color(0xFF474747),
@@ -167,11 +165,10 @@ class _ReceitasPageState extends State<ReceitasPage> {
             ),
             _cardImage(),
             _ingredientes(),
-            _modoDePreparo()
-          ])),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: CenterBottomBar(press: () {  },),
-      bottomNavigationBar: BottomBar(press: () {  },),
+            _modoDePreparo(),
+          ],
+        ),
+      ),
     );
   }
 }

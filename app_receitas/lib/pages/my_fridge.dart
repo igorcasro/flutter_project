@@ -1,6 +1,4 @@
 import 'package:app_receitas/components/my_fridge_page/add_ingredient_listview.dart';
-import 'package:app_receitas/components/public/bottom_bar.dart';
-import 'package:app_receitas/components/public/center_bottom_bar.dart';
 import 'package:app_receitas/constants.dart';
 import 'package:flutter/material.dart';
 import '../components/my_fridge_page/add_ingredient_input.dart';
@@ -62,14 +60,6 @@ class MyFridgePage extends StatelessWidget {
                       ],
                     ))
               ]),
-      ),
-      extendBody: true,
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: CenterBottomBar(
-        press: () {},
-      ),
-      bottomNavigationBar: BottomBar(
-        press: () {},
       ),
     );
   }

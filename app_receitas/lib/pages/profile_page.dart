@@ -1,5 +1,3 @@
-import 'package:app_receitas/components/public/bottom_bar.dart';
-import 'package:app_receitas/components/public/center_bottom_bar.dart';
 import 'package:app_receitas/constants.dart';
 import 'package:flutter/material.dart';
 import '../components/profile_page/options_list.dart';
@@ -22,14 +20,6 @@ class ProfilePage extends StatelessWidget {
         const ProfileCard(),
         const OptionsList(),
       ]),
-      extendBody: true,
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: CenterBottomBar(
-        press: () {},
-      ),
-      bottomNavigationBar: BottomBar(
-        press: () {},
-      ),
     );
   }
 }

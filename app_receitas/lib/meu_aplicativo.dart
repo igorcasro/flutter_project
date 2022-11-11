@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 @override
 Widget build(BuildContext context) {
   return MaterialApp(
-    title: 'Comiditas',
+    title: 'Fridgey App',
     debugShowCheckedModeBanner: false,
     theme: ThemeData(
       primarySwatch: Colors.indigo,

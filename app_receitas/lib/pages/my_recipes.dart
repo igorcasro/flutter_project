@@ -5,9 +5,6 @@ import 'package:app_receitas/repositorie/receitasRepositorie.dart';
 import 'package:flutter/material.dart';
 import 'package:app_receitas/constants.dart';
 
-import '../components/public/bottom_bar.dart';
-import '../components/public/center_bottom_bar.dart';
-
 class MyRecipes extends StatefulWidget {
   const MyRecipes({super.key});
 
@@ -26,69 +23,22 @@ class _MyRecipesState extends State<MyRecipes> {
         context, MaterialPageRoute(builder: (_) => const AddNewRecipePage()));
   }
 
-  Widget _bottomBar() {
-    return BottomAppBar(
-      shape: const CircularNotchedRectangle(),
-      color: Colors.white,
-      child: IconTheme(
-        data: const IconThemeData(color: Color(0xFFE58F65)),
-        child: Padding(
-          padding: const EdgeInsets.all(1),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.home_sharp, color: Color(0xFF474747))),
-              IconButton(
-                  onPressed: () {},
-                  icon:
-                      const Icon(Icons.search_sharp, color: Color(0xFF474747))),
-              const SizedBox(
-                width: 50,
-              ),
-              IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.view_timeline_rounded,
-                      color: Color(0xffE58F65))),
-              IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.person, color: Color(0xFF474747))),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _centerBottomBar() {
-    return FloatingActionButton(
-      onPressed: () {},
-      backgroundColor: const Color(0xFFE58F65),
-      child: IconButton(
-        onPressed: () {},
-        icon: Image.asset('assets/images/icons/fridgey.png'),
-        iconSize: 100,
-      ),
-    );
-  }
-
   Widget _headerMyRecipes() {
     return Expanded(
       flex: 2,
       child: Container(
         margin: const EdgeInsets.only(top: 20.0),
         child: const Align(
-            alignment: Alignment.topLeft,
-            child: Text(
-              "Minhas receitas",
-              style: TextStyle(
-                color: blackTextColor,
-                fontSize: 35,
-                fontWeight: FontWeight.bold,
-              ),
-            )),
+          alignment: Alignment.topLeft,
+          child: Text(
+            "Minhas receitas",
+            style: TextStyle(
+              color: blackTextColor,
+              fontSize: 35,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
       ),
     );
   }
@@ -200,13 +150,6 @@ class _MyRecipesState extends State<MyRecipes> {
           _addRecipesButtom(),
           _listCardRecipes()
         ]),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: CenterBottomBar(
-        press: () {},
-      ),
-      bottomNavigationBar: BottomBar(
-        press: () {},
       ),
     );
   }

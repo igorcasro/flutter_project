@@ -2,9 +2,11 @@ import 'package:app_receitas/constants.dart';
 import 'package:app_receitas/pages/login_page.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(const MaterialApp(
-      home: LoginPage(),
-    ));
+void main() => runApp(
+      const MaterialApp(
+        home: LoginPage(),
+      ),
+    );
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -22,10 +24,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-
-//void main() {
-//  debugInvertOversizedImages = false;
-//  runApp(const MeuAplicativo());
-
-//}

@@ -1,9 +1,6 @@
 import 'package:app_receitas/models/receitas.dart';
 import 'package:flutter/material.dart';
 
-import '../components/public/bottom_bar.dart';
-import '../components/public/center_bottom_bar.dart';
-
 // ignore: must_be_immutable
 class ReceitasPage extends StatefulWidget {
   Receita receita;
@@ -47,7 +44,6 @@ class _ReceitasPageState extends State<ReceitasPage> {
                   color: Color(0xffE58F65),
                   size: 30,
                 ),
-
                 title: const Text(
                   "PREPARO",
                   style: TextStyle(
@@ -139,7 +135,6 @@ class _ReceitasPageState extends State<ReceitasPage> {
               );
             }),
           )
-
         ],
       ),
     );
@@ -155,8 +150,10 @@ class _ReceitasPageState extends State<ReceitasPage> {
         elevation: 0,
       ),
       body: Container(
-          margin: const EdgeInsets.only(top: 10.0, left: 10.0),
-          child: ListView(shrinkWrap: true, children: [
+        margin: const EdgeInsets.only(top: 10.0, left: 10.0),
+        child: ListView(
+          shrinkWrap: true,
+          children: [
             Text(
               widget.receita.nome,
               textAlign: TextAlign.left,
@@ -169,17 +166,11 @@ class _ReceitasPageState extends State<ReceitasPage> {
             _cardImage(),
             _ingredientes(),
             _modoDePreparo(),
-
             const SizedBox(
               height: 50,
-            )
-          ])),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: CenterBottomBar(
-        press: () {},
-      ),
-      bottomNavigationBar: BottomBar(
-        press: () {},
+            ),
+          ],
+        ),
       ),
     );
   }
