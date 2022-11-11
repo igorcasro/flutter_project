@@ -1,3 +1,5 @@
+// ignore_for_file: unused_field
+
 import 'package:app_receitas/components/public/back_to_start_button.dart';
 import 'package:app_receitas/components/public/send_button.dart';
 import 'package:app_receitas/constants.dart';
@@ -36,30 +38,24 @@ class _RegisterPageState extends State<RegisterPage> {
 
   registrar() async {
     setState(() {
-        loading = true;
+      loading = true;
     });
 
     try {
-      await context.read<AuthService>().registrar(
-        _email.text,
-        _password.text
-      );
+      await context.read<AuthService>().registrar(_email.text, _password.text);
 
-    setState(() {
+      setState(() {
         loading = false;
-    });
+      });
     } on AuthException catch (e) {
       setState(() {
         loading = false;
       });
 
       ScaffoldMessenger.of(context)
-      .showSnackBar(SnackBar(
-        content: Text(e.message)
-      ));
+          .showSnackBar(SnackBar(content: Text(e.message)));
     }
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -95,7 +91,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 if (value!.isEmpty) {
                   return 'Informe o email corretamente!';
                 }
-               return null;
+                return null;
               },
             ),
             TextFormField(
@@ -114,7 +110,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 return null;
               },
             ),
-            
+
             // CommonInputTextField(
             //   hintText: 'Telefone',
             //   icon: Icons.local_phone_outlined,

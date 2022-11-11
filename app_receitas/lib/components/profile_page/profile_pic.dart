@@ -32,7 +32,10 @@ class ProfilePic extends StatelessWidget {
                   backgroundColor: const Color(0xFFF5F6F9),
                 ),
                 onPressed: () {},
-                child: Icon(Icons.camera_alt, color: Color.fromARGB(255, 255, 166, 93),),
+                child: const Icon(
+                  Icons.camera_alt,
+                  color: Color.fromARGB(255, 255, 166, 93),
+                ),
               ),
             ),
           )

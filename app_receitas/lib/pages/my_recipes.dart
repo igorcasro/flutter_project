@@ -1,12 +1,13 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:app_receitas/models/receitas.dart';
 import 'package:app_receitas/pages/add_new_recipe_page.dart';
 import 'package:app_receitas/pages/recipes_page.dart';
-import 'package:app_receitas/repositorie/receitasRepositorie.dart';
+import 'package:app_receitas/repositorie/receitas_repositorie.dart';
 import 'package:blobs/blobs.dart';
 import 'package:flutter/material.dart';
 import 'package:app_receitas/constants.dart';
 import '../components/public/add_recipe_button.dart';
-import '../components/public/send_button.dart';
 
 class MyRecipes extends StatefulWidget {
   const MyRecipes({super.key});
@@ -49,7 +50,8 @@ class _MyRecipesState extends State<MyRecipes> {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: ClipRRect(
-                        borderRadius: const BorderRadius.all(Radius.circular(25)),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(25)),
                         child: Image.asset(
                           receitas[receita].foto,
                           fit: BoxFit.contain,
@@ -93,11 +95,10 @@ class _MyRecipesState extends State<MyRecipes> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         AddRecipeButton(
-          text: "Adicionar nova receita",
-           onPressed: () {
-             addNewRecipes();
-            }
-         ), 
+            text: "Adicionar nova receita",
+            onPressed: () {
+              addNewRecipes();
+            }),
       ],
     );
   }
@@ -109,33 +110,37 @@ class _MyRecipesState extends State<MyRecipes> {
       body: Stack(
         children: [
           Container(
-                padding: EdgeInsets.only(left: 50, top: 00),
-                  child: Blob.fromID(
-                    id: ['6-4-46477'],
-                    size: 300,
-                    styles:  BlobStyles(
-                      color:  Color.fromARGB(255, 255, 247, 209),
-                    ),
-                  ),
-                ),
-                Container(
-                padding: EdgeInsets.only(left: 0, top: 400),
-                  child: Blob.fromID(
-                    id: ['6-4-46477'],
-                    size: 300,
-                    styles:  BlobStyles(
-                      color:  Color.fromARGB(255, 255, 247, 209),
-                    ),
-                  ),
-                ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-            SizedBox(height: 40,),
+            padding: const EdgeInsets.only(left: 50, top: 00),
+            child: Blob.fromID(
+              id: const ['6-4-46477'],
+              size: 300,
+              styles: BlobStyles(
+                color: const Color.fromARGB(255, 255, 247, 209),
+              ),
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.only(left: 0, top: 400),
+            child: Blob.fromID(
+              id: const ['6-4-46477'],
+              size: 300,
+              styles: BlobStyles(
+                color: const Color.fromARGB(255, 255, 247, 209),
+              ),
+            ),
+          ),
+          Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            const SizedBox(
+              height: 40,
+            ),
             text("Minhas receitas", 40),
-            SizedBox(height: 10,),
+            const SizedBox(
+              height: 10,
+            ),
             _addRecipesButtom(),
-            SizedBox(height: 15,),
+            const SizedBox(
+              height: 15,
+            ),
             _listCardRecipes()
           ]),
         ],

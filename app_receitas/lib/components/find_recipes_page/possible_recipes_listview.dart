@@ -1,7 +1,7 @@
 import 'package:app_receitas/components/find_recipes_page/possible_recipe_card.dart';
 import 'package:flutter/material.dart';
 
-import '../../repositorie/receitasRepositorie.dart';
+import '../../repositorie/receitas_repositorie.dart';
 
 class PossibleRecipeListView extends StatelessWidget {
   const PossibleRecipeListView({
