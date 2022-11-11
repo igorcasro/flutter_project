@@ -8,7 +8,7 @@ class TextFieldWidget extends StatefulWidget {
 
   const TextFieldWidget({
     Key? key,
-    this.maxLines = 1,
+    required this.maxLines,
     required this.label,
     required this.text,
     required this.onChanged,
@@ -39,20 +39,27 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
   Widget build(BuildContext context) => Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            widget.label,
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+          Padding(
+            padding: const EdgeInsets.only(left: 20.0),
+            child: Text(
+              widget.label,
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+            ),
           ),
           const SizedBox(height: 8),
-          TextField(
-            controller: controller,
-            decoration: InputDecoration(
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12),
+          Padding(
+            padding: const EdgeInsets.only(left: 15, right: 15),
+            child: TextField(
+              controller: controller,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
               ),
+              maxLines: widget.maxLines,
             ),
-            maxLines: widget.maxLines,
           ),
+          const SizedBox(height: 10),
         ],
       );
 }
