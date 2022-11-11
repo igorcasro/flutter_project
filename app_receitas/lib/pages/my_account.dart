@@ -1,7 +1,6 @@
 import 'package:app_receitas/components/my_account_page/TextWidget.dart';
 import 'package:app_receitas/models/receitas.dart';
 import 'package:app_receitas/pages/recipes_page.dart';
-import 'package:app_receitas/repositorie/receitasRepositorie.dart';
 import 'package:blobs/blobs.dart';
 import 'package:flutter/material.dart';
 
