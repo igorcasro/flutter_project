@@ -1,11 +1,9 @@
-class Ingredients {
-  int id;
-  String? name;
-  String photoPath;
+class Ingredients{
+  String nome;
+  int qtd;
 
   Ingredients({
-    required this.id,
-    required this.name,
-    required this.photoPath
+    required this.nome,
+    required this.qtd
   });
 }

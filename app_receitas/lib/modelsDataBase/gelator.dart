@@ -1,10 +1,8 @@
-import 'package:app_receitas/modelsDataBase/ingredients_gelator.dart';
-import 'package:app_receitas/modelsDataBase/person.dart';
+import 'package:app_receitas/modelsDataBase/ingredients.dart';
 
 class Gelator {
   int id;
-  List<IngredientsGelator> ingredients;
-  Person person;
+  Ingredients ingredients;
 
-  Gelator({required this.id, required this.ingredients, required this.person});
+  Gelator({required this.id, required this.ingredients});
 }
