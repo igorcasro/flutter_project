@@ -29,10 +29,18 @@ class DB {
   }
 
   String get _geladeira=> '''
-    CREATE TABLE recipes (
+    CREATE TABLE geladeira (
+      id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    );
+  ''';
+
+  String get ingrediente=>'''
+    CREATE TABLE ingrediente (
       id INTEGER PRIMARY KEY AUTO_INCREMENT,
       nomeIngrediente TEXT,
       qtdIngrediente INT,
+      geladeira_id INT,
+      FOREIGN KEY (geladeira_id) REFERENCES geladeira (id) 
     );
   ''';
 
