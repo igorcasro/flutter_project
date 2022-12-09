@@ -52,7 +52,7 @@ class FindRecipesPage extends StatelessWidget {
                           alignment: const FractionalOffset(0, 0),
                           child: text('Receitas possíveis', 25),
                         ),
-                        const PossibleRecipeListView(),
+                        PossibleRecipeListView(),
                       ],
                     )
                   : Column(children: [

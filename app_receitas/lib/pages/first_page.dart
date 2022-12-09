@@ -15,6 +15,9 @@ class FirstPage extends StatefulWidget {
 }
 
 class _FirstPageState extends State<FirstPage> {
+  late List<Receita> receitas;
+  late ReceitaRepositorie receitasRepository;
+
   mostrarDetalhes(Receita receita) {
     Navigator.push(context,
         MaterialPageRoute(builder: (_) => ReceitasPage(receita: receita)));
@@ -41,8 +44,6 @@ class _FirstPageState extends State<FirstPage> {
   }
 
   Widget _receitasEmAlta() {
-    final receitas = ReceitaRepositorie.listaReceitas;
-
     return Container(
         height: 200,
         width: 250,
@@ -73,7 +74,6 @@ class _FirstPageState extends State<FirstPage> {
   }
 
   Widget _receitasRecentes() {
-    final receitas = ReceitaRepositorie.listaReceitas;
     return Container(
         margin: const EdgeInsets.only(top: 10.0, left: 10.0, right: 10.0),
         child: ListView.separated(

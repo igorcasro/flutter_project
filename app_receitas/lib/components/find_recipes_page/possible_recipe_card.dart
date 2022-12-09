@@ -24,7 +24,7 @@ class PossibleRecipeCard extends StatelessWidget {
             margin: const EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 3),
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage(receita.foto), fit: BoxFit.fitWidth
+                image: NetworkImage(receita.foto), fit: BoxFit.fitWidth
               ),
               borderRadius: BorderRadius.circular(15)
             ), 

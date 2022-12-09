@@ -1,4 +1,5 @@
 import 'package:app_receitas/constants.dart';
+import 'package:app_receitas/repositorie/receitas_repositorie.dart';
 import 'package:app_receitas/services/auth_service.dart';
 import 'package:app_receitas/widgets/auth_check.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +18,7 @@ void main() async {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => AuthService()),
+        ChangeNotifierProvider(create: (context) => ReceitaRepositorie()),
     ],
     child: const MyApp(),
     )
