@@ -7,7 +7,6 @@ import 'package:app_receitas/repositorie/receitas_repositorie.dart';
 import 'package:blobs/blobs.dart';
 import 'package:flutter/material.dart';
 import 'package:app_receitas/constants.dart';
-import 'package:provider/provider.dart';
 import '../components/public/add_recipe_button.dart';
 
 class MyRecipes extends StatefulWidget {
@@ -18,9 +17,6 @@ class MyRecipes extends StatefulWidget {
 }
 
 class _MyRecipesState extends State<MyRecipes> {
-  late List<Receita> receitas;
-  late ReceitaRepositorie receitasRepository;
-
   mostrarDetalhes(Receita receita) {
     Navigator.push(context,
         MaterialPageRoute(builder: (_) => ReceitasPage(receita: receita)));
@@ -32,6 +28,8 @@ class _MyRecipesState extends State<MyRecipes> {
   }
 
   Widget _listCardRecipes() {
+    final receitas = ReceitaRepositorie.listaReceitas;
+
     return Expanded(
       flex: 10,
       child: ListView.separated(
@@ -56,7 +54,7 @@ class _MyRecipesState extends State<MyRecipes> {
                             const BorderRadius.all(Radius.circular(25)),
                         child: Image.asset(
                           receitas[receita].foto,
-                          fit: BoxFit.contain,
+                          fit: BoxFit.fitWidth,
                         ),
                       ),
                     ),
@@ -107,8 +105,6 @@ class _MyRecipesState extends State<MyRecipes> {
 
   @override
   Widget build(BuildContext context) {
-    receitasRepository = context.watch<ReceitaRepositorie>();
-
     return Scaffold(
       backgroundColor: whiteBackgroundColor,
       body: Stack(
