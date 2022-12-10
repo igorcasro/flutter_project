@@ -71,13 +71,13 @@ class _MyRecipesState extends State<MyRecipes> {
                               fontSize: 20,
                               fontWeight: FontWeight.bold),
                         ),
-                        Text(
-                          receitas[receita].data,
-                          textAlign: TextAlign.right,
-                          style: const TextStyle(
-                            fontSize: 16,
-                          ),
-                        )
+                        // Text(
+                        //   receitas[receita].,
+                        //   textAlign: TextAlign.right,
+                        //   style: const TextStyle(
+                        //     fontSize: 16,
+                        //   ),
+                        // )
                       ],
                     ),
                   ],

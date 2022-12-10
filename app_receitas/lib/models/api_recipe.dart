@@ -3,10 +3,11 @@ class Recipe {
   late String image;
   String? imageType;
   int? likes;
+  late String ingredients;
   late int missedIngredientCount;
   late List<MissedIngredients> missedIngredients;
   late String title;
-  late List<MissedIngredients>? unusedIngredients;
+  late List<MissedIngredients> unusedIngredients;
   late int usedIngredientCount;
 
   Recipe({
@@ -17,7 +18,7 @@ class Recipe {
       required this.missedIngredientCount,
       required this.missedIngredients,
       required this.title,
-      this.unusedIngredients,
+      required this.unusedIngredients,
       required this.usedIngredientCount,
     });
 
