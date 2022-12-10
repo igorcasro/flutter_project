@@ -36,6 +36,7 @@ class _ReceitasPageState extends State<ReceitasPage> {
                   cacheHeight: 160,
                 ),
               ),
+              // ignore: prefer_const_constructors
               ListTile(
                 horizontalTitleGap: 0,
                 contentPadding: const EdgeInsets.symmetric(horizontal: 10),
@@ -52,7 +53,6 @@ class _ReceitasPageState extends State<ReceitasPage> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                subtitle: Text(widget.receita.tempoDePreparo),
               )
             ])));
   }
