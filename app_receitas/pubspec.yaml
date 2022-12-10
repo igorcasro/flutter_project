@@ -43,9 +43,13 @@ dependencies:
   blobs: ^2.0.0
   settings_ui: ^2.0.2
   sqflite: ^2.2.0+3
+  camera_camera: ^2.0.2
+  get:
   http: ^0.13.5
 
 dev_dependencies:
+  flutter_localizations:
+    sdk: flutter 
   flutter_test:
     sdk: flutter
 

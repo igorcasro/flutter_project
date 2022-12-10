@@ -42,7 +42,7 @@ class PossibleRecipeCard extends StatelessWidget {
         )
           ),
           Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-           text(receita.title, 20)
+           text(receita.title, 10)
           ],),
           const SizedBox(height: 8),
           ]
