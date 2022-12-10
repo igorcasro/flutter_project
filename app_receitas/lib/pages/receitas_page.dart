@@ -1,9 +1,10 @@
+import 'package:app_receitas/models/api_recipe.dart';
 import 'package:app_receitas/models/receitas.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class ReceitasPage extends StatefulWidget {
-  Receita receita;
+  Recipe receita;
   ReceitasPage({Key? key, required this.receita}) : super(key: key);
 
   @override
@@ -31,20 +32,20 @@ class _ReceitasPageState extends State<ReceitasPage> {
               ClipRRect(
                 borderRadius: const BorderRadius.all(Radius.circular(30)),
                 child: Image.asset(
-                  widget.receita.foto,
+                  widget.receita.image,
                   cacheWidth: 280,
                   cacheHeight: 160,
                 ),
               ),
-              ListTile(
+              const ListTile(
                 horizontalTitleGap: 0,
-                contentPadding: const EdgeInsets.symmetric(horizontal: 10),
-                leading: const Icon(
+                contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                leading: Icon(
                   Icons.timer_outlined,
                   color: Color(0xffE58F65),
                   size: 30,
                 ),
-                title: const Text(
+                title: Text(
                   "PREPARO",
                   style: TextStyle(
                     color: Color(0xffE58F65),
@@ -52,7 +53,6 @@ class _ReceitasPageState extends State<ReceitasPage> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                subtitle: Text(widget.receita.tempoDePreparo),
               )
             ])));
   }
@@ -81,11 +81,11 @@ class _ReceitasPageState extends State<ReceitasPage> {
             Column(children: [
               Column(
                 children:
-                    List.generate(widget.receita.ingredientes.length, (index) {
+                    List.generate(widget.receita.unusedIngredients!.length, (index) {
                   return Align(
                       alignment: Alignment.topLeft,
                       child: Text(
-                        "${widget.receita.ingredientes[index].quantidade.toInt()} ${widget.receita.ingredientes[index].uMedida} de ${widget.receita.ingredientes[index].ingrediente.nome}",
+                        "${widget.receita.unusedIngredients![index].amount} ${widget.receita.unusedIngredients![index].unitShort} de ${widget.receita.unusedIngredients![index].name}",
                         textAlign: TextAlign.justify,
                         style: const TextStyle(
                           fontSize: 20,
@@ -116,25 +116,25 @@ class _ReceitasPageState extends State<ReceitasPage> {
                   fontWeight: FontWeight.bold,
                 ),
               )),
-          Column(
-            children: List.generate(
-                widget.receita.modoDePreparo.passosPreparo.length, (index) {
-              return Column(
-                children: [
-                  Align(
-                    alignment: Alignment.topLeft,
-                    child: Text(
-                      widget.receita.modoDePreparo.passosPreparo[index],
-                      textAlign: TextAlign.justify,
-                      style: const TextStyle(
-                        fontSize: 20,
-                      ),
-                    ),
-                  )
-                ],
-              );
-            }),
-          )
+          // Column(
+          //   children: List.generate(
+          //       widget.receita.modoDePreparo.passosPreparo.length, (index) {
+          //     return Column(
+          //       children: [
+          //         Align(
+          //           alignment: Alignment.topLeft,
+          //           child: Text(
+          //             widget.receita.modoDePreparo.passosPreparo[index],
+          //             textAlign: TextAlign.justify,
+          //             style: const TextStyle(
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         )
+          //       ],
+          //     );
+          //   }),
+          // )
         ],
       ),
     );
@@ -155,7 +155,7 @@ class _ReceitasPageState extends State<ReceitasPage> {
           shrinkWrap: true,
           children: [
             Text(
-              widget.receita.nome,
+              widget.receita.title,
               textAlign: TextAlign.left,
               style: const TextStyle(
                 fontSize: 35,
