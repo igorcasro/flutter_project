@@ -3,8 +3,10 @@ import 'package:app_receitas/services/auth_service.dart';
 import 'package:app_receitas/widgets/auth_check.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'firebase_options.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,7 +28,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
+      // ignore: prefer_const_literals_to_create_immutables
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      // ignore: prefer_const_literals_to_create_immutables
+      supportedLocales: [
+        const Locale('pt', 'BR'),
+      ],
       debugShowCheckedModeBanner: false,
       title: 'Fridgey App',
       theme: ThemeData(
