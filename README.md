@@ -1,3 +1,8 @@
+## LER AQUI
+Professor, tem alguns erros no projeto:
+- Por conta de não termos conseguido implementar o banco, algumas funcionalidades não estão disponíveis. São elas: adicionar ingrediente na geladeira, pesquisar a receita pelo ingrediente e adicionar uma receita feita. Por conta disso, para utilizar a API, eu setei os ingredientes como Maçã e Farinha. É por esse motivo que na página Achar Receita são mostradas receitas com maçã e farinha.
+- A página de modo de fazer da receita está quebrando pois não conseguimos fazer algumas mudanças a tempo.
+Att, Amanda Rodrigues.
 
 ![Logo](https://github.com/igorcasro/flutter_project/blob/main/app_receitas/assets/fundo_capa.png)
 
