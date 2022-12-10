@@ -3,13 +3,22 @@
 import 'package:app_receitas/components/find_recipes_page/possible_recipes_listview.dart';
 import 'package:app_receitas/components/find_recipes_page/search_input.dart';
 import 'package:app_receitas/constants.dart';
+import 'package:app_receitas/repositorie/receitas_repositorie.dart';
 import 'package:blobs/blobs.dart';
 import 'package:flutter/material.dart';
 
-class FindRecipesPage extends StatelessWidget {
+import '../models/receitas.dart';
+
+
+class FindRecipesPage extends StatefulWidget {
   const FindRecipesPage({super.key});
 
   @override
+  _FindRecipesPage createState() => _FindRecipesPage();
+}
+
+  
+class _FindRecipesPage extends State<FindRecipesPage> {
   Widget build(BuildContext context) {
     bool x = true;
 
@@ -52,7 +61,7 @@ class FindRecipesPage extends StatelessWidget {
                           alignment: const FractionalOffset(0, 0),
                           child: text('Receitas possíveis', 25),
                         ),
-                        const PossibleRecipeListView(),
+                        PossibleRecipeListView(),
                       ],
                     )
                   : Column(children: [
